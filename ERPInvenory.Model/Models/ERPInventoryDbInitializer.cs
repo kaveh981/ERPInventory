@@ -36,7 +36,7 @@ namespace ERPInventory.Model.Models
             categories13.Add(cat131);
             categories13.Add(cat132);
 
-            context.Categories.Add(cat132);
+            context.Categories.Add(cat1);
            
             base.Seed(context);
         }
