@@ -19,7 +19,7 @@ namespace ERPInventory
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-
+            // to initialize database for the first time 
             var context = new ERPInventoryDBContext();
             context.Database.Initialize(true);
         }
