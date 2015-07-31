@@ -12,6 +12,23 @@ namespace ERPInventory.Model.Models
     {
         protected override void Seed(ERPInventoryDBContext context)
         {
+
+//            context.Database.ExecuteSqlCommand("create FUNCTION [dbo].[AllSubCategoryId](@CategoryId uniqueIdentifier )
+//RETURNS TABLE
+//AS
+//RETURN (WITH CategoryChart (CategoryId,Cat_ParentId,CategoryLevel) AS
+// (
+//  SELECT
+//     a.CategoryId,  a.Cat_ParentId,0
+//   FROM dbo.Categories as a
+//   WHERE a.CategoryId 	= @CategoryId
+//  UNION ALL
+//  SELECT
+//     a.CategoryId,  a.Cat_ParentId, b.Categorylevel+1
+//   FROM dbo.Categories a
+//     INNER JOIN CategoryChart b ON a.Cat_ParentId = b.CategoryId
+//) select CategoryId from CategoryChart );
+//");
             Category cat1, cat12, cat13, cat14, cat131, cat132;
 
             IList<Category> categories1 = new List<Category>();
