@@ -5,13 +5,13 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ERPInventory", "ERPInventory\ERPInventory.csproj", "{E5864DC0-E9EB-4CA6-8677-73E66685DC13}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ERPInvenory.Model", "ERPInvenory.Model\ERPInvenory.Model.csproj", "{14BAA6AE-7EF3-4E6B-8C8F-376DFE6B31A6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ERPInventory.Model", "ERPInvenory.Model\ERPInventory.Model.csproj", "{14BAA6AE-7EF3-4E6B-8C8F-376DFE6B31A6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ERPInvenory.DataLayer", "ERPInvenory.DataLayer\ERPInvenory.DataLayer.csproj", "{98FD1CC1-48C5-4501-97E6-C4EF49708BD9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ERPInventory.DataLayer", "ERPInvenory.DataLayer\ERPInventory.DataLayer.csproj", "{98FD1CC1-48C5-4501-97E6-C4EF49708BD9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ERPInvenory.BusinessLayer", "ERPInvenory.BusinessLayer\ERPInvenory.BusinessLayer.csproj", "{4416D891-4B0B-40B4-B081-4CAB03FDEFF9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ERPInventory.BusinessLayer", "ERPInvenory.BusinessLayer\ERPInventory.BusinessLayer.csproj", "{4416D891-4B0B-40B4-B081-4CAB03FDEFF9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ERPInvenory.Common", "ERPInvenory.Common\ERPInvenory.Common.csproj", "{E9523E89-6AD0-4BD7-BA76-74BCEA812B4F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ERPInventory.Common", "ERPInvenory.Common\ERPInventory.Common.csproj", "{E9523E89-6AD0-4BD7-BA76-74BCEA812B4F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

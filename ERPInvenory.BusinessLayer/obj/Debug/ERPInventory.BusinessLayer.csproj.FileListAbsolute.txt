@@ -1,0 +1,5 @@
+C:\Users\kaveh\Desktop\mapi2\ERPInventory\ERPInvenory.BusinessLayer\bin\Debug\ERPInvenory.BusinessLayer.dll
+C:\Users\kaveh\Desktop\mapi2\ERPInventory\ERPInvenory.BusinessLayer\bin\Debug\ERPInvenory.BusinessLayer.pdb
+C:\Users\kaveh\Desktop\mapi2\ERPInventory\ERPInvenory.BusinessLayer\obj\Debug\ERPInventory.BusinessLayer.csprojResolveAssemblyReference.cache
+C:\Users\kaveh\Desktop\mapi2\ERPInventory\ERPInvenory.BusinessLayer\obj\Debug\ERPInvenory.BusinessLayer.dll
+C:\Users\kaveh\Desktop\mapi2\ERPInventory\ERPInvenory.BusinessLayer\obj\Debug\ERPInvenory.BusinessLayer.pdb

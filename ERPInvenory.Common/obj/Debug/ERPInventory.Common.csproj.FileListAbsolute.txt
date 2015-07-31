@@ -1,0 +1,4 @@
+C:\Users\kaveh\Desktop\mapi2\ERPInventory\ERPInvenory.Common\bin\Debug\ERPInvenory.Common.dll
+C:\Users\kaveh\Desktop\mapi2\ERPInventory\ERPInvenory.Common\bin\Debug\ERPInvenory.Common.pdb
+C:\Users\kaveh\Desktop\mapi2\ERPInventory\ERPInvenory.Common\obj\Debug\ERPInvenory.Common.dll
+C:\Users\kaveh\Desktop\mapi2\ERPInventory\ERPInvenory.Common\obj\Debug\ERPInvenory.Common.pdb

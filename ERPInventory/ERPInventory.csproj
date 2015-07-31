@@ -213,9 +213,9 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ERPInvenory.Model\ERPInvenory.Model.csproj">
+    <ProjectReference Include="..\ERPInvenory.Model\ERPInventory.Model.csproj">
       <Project>{14baa6ae-7ef3-4e6b-8c8f-376dfe6b31a6}</Project>
-      <Name>ERPInvenory.Model</Name>
+      <Name>ERPInventory.Model</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
