@@ -14,6 +14,11 @@ namespace ERPInventory.Model.Models
         {
             Database.SetInitializer<ERPInventoryDBContext>(new ERPInventoryDbInitializer());
         }
+        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        //{
+        //    modelBuilder.Entity<ERPInventoryDBContext>().MapToStoredProcedures();
+        //}
+
 
 
         public DbSet<Category> Categories { get; set; }

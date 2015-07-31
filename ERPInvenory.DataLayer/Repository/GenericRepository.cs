@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data.Entity;
 using System.Linq.Expressions;
 using ERPInventory.Model.Models;
+using System.Data.Entity.Infrastructure;
 namespace ERPInvenory.DataLayer.Repository
 {
     public class GenericRepository<T> : IGenericRepository<T> where T : class
@@ -57,6 +58,11 @@ namespace ERPInvenory.DataLayer.Repository
             foreach (var property in includeProperties)
                 query = query.Include(property);
             return query.Where(predicate).FirstOrDefault();
+        }
+
+        public IEnumerable<T> SQLQuery(string sql, params object[] parameters)
+        {
+            return context.Database.SqlQuery<T>(sql, parameters).AsEnumerable();
         }
 
         public virtual void Insert(T entity)

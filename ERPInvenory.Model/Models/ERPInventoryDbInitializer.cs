@@ -8,7 +8,7 @@ using System.Collections;
 
 namespace ERPInventory.Model.Models
 {
-    public class ERPInventoryDbInitializer : DropCreateDatabaseAlways<ERPInventoryDBContext>
+    public class ERPInventoryDbInitializer : DropCreateDatabaseIfModelChanges<ERPInventoryDBContext>
     {
         protected override void Seed(ERPInventoryDBContext context)
         {
@@ -28,7 +28,8 @@ namespace ERPInventory.Model.Models
             cat132 = new Category() { Cat_CreateTime = DateTime.Now, Cat_Title = "Category132", Cat_NodeDepth = 2, Cat_Priority = 2 };
             categories2.Add(cat131);
             categories2.Add(cat132);
-
+            //object parameters=null;
+            //object[] parameterArray = (object[])parameters;
             context.Categories.Add(cat1);
 
             base.Seed(context);

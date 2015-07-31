@@ -39,8 +39,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="HierarchyCategory.cs" />
+    <Compile Include="IHierarchyCategory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ERPInvenory.DataLayer\ERPInventory.DataLayer.csproj">
+      <Project>{98fd1cc1-48c5-4501-97e6-c4ef49708bd9}</Project>
+      <Name>ERPInventory.DataLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ERPInvenory.Model\ERPInventory.Model.csproj">
+      <Project>{14baa6ae-7ef3-4e6b-8c8f-376dfe6b31a6}</Project>
+      <Name>ERPInventory.Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
