@@ -30,8 +30,8 @@ namespace ERPInventory.Model.Models
         public DateTime? Cat_StampTime { get; set; }
 
 
-        public virtual IEnumerable<Category> Categories { get; set; }
-        public Category Parent { get; set; }
+        public virtual ICollection<Category> Categories { get; set; }
+        public virtual  Category Parent { get; set; }
 
 
     }
