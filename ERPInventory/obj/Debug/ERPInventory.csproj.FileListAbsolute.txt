@@ -42,3 +42,7 @@ C:\Users\kaveh\Desktop\mapi2\ERPInventory\ERPInventory\bin\Ninject.Web.WebApi.dl
 C:\Users\kaveh\Desktop\mapi2\ERPInventory\ERPInventory\bin\Ninject.xml
 C:\Users\kaveh\Desktop\mapi2\ERPInventory\ERPInventory\bin\Ninject.Web.Common.xml
 C:\Users\kaveh\Desktop\mapi2\ERPInventory\ERPInventory\bin\Ninject.Web.WebApi.xml
+C:\Users\kaveh\Desktop\mapi2\ERPInventory\ERPInventory\bin\ERPInvenory.BusinessLayer.dll
+C:\Users\kaveh\Desktop\mapi2\ERPInventory\ERPInventory\bin\ERPInvenory.DataLayer.dll
+C:\Users\kaveh\Desktop\mapi2\ERPInventory\ERPInventory\bin\ERPInvenory.BusinessLayer.pdb
+C:\Users\kaveh\Desktop\mapi2\ERPInventory\ERPInventory\bin\ERPInvenory.DataLayer.pdb
