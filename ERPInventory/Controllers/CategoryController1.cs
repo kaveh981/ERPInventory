@@ -12,10 +12,10 @@ namespace ERPInventory.Controllers
     {
         // GET api/<controller>
 
-          private readonly IHierarchyCategory _Category;
+          private readonly ICategory _Category;
 
 
-          public CategoryController1(IHierarchyCategory category)
+          public CategoryController1(ICategory category)
         {
             _Category = category;
         }

@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ERPInventory.Model.Models
 {
-    public class Category
+    public class inv_Category
     {
         // guid works for auto increment
         [Key, Column(Order = 1), DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -30,8 +30,8 @@ namespace ERPInventory.Model.Models
         public DateTime? Cat_StampTime { get; set; }
 
 
-        public virtual ICollection<Category> Categories { get; set; }
-        public virtual  Category Parent { get; set; }
+        public virtual ICollection<inv_Category> Categories { get; set; }
+        public virtual  inv_Category Parent { get; set; }
 
 
     }

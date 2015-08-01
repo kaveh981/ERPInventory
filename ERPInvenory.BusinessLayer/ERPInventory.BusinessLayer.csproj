@@ -39,8 +39,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="HierarchyCategory.cs" />
-    <Compile Include="IHierarchyCategory.cs" />
+    <Compile Include="Category.cs" />
+    <Compile Include="ICategory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

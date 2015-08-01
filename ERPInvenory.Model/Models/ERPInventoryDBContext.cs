@@ -21,7 +21,7 @@ namespace ERPInventory.Model.Models
 
 
 
-        public DbSet<Category> Categories { get; set; }
+        public DbSet<inv_Category> Categories { get; set; }
 
     }
 }

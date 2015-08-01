@@ -7,17 +7,17 @@ using System.Threading.Tasks;
 
 namespace ERPInvenory.BusinessLayer
 {
-   public interface IHierarchyCategory
+   public interface ICategory
     {
-        IEnumerable<Category> GetCategories();
+        IEnumerable<inv_Category> GetCategories();
 
-        Category GetCategoryById();
-        IEnumerable<Category> GetParentCategoriesById( Guid id);
+        inv_Category GetCategoryById();
+        IEnumerable<inv_Category> GetParentCategoriesById( Guid id);
 
         IEnumerable<Guid> GetChildCategoriesById(Guid id);
-        void PostCategory(Category category);
+        void PostCategory(inv_Category category);
         void DeleteCategory(int id);
-        void UpdateCategory(Category category);
+        void UpdateCategory(inv_Category category);
 
 
         void Dispose();
