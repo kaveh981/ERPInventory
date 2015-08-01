@@ -36,3 +36,9 @@ C:\Users\kaveh\Desktop\mapi2\ERPInventory\ERPInventory\bin\Antlr3.Runtime.pdb
 C:\Users\kaveh\Desktop\mapi2\ERPInventory\ERPInventory\obj\Debug\ERPInventory.csprojResolveAssemblyReference.cache
 C:\Users\kaveh\Desktop\mapi2\ERPInventory\ERPInventory\obj\Debug\ERPInventory.dll
 C:\Users\kaveh\Desktop\mapi2\ERPInventory\ERPInventory\obj\Debug\ERPInventory.pdb
+C:\Users\kaveh\Desktop\mapi2\ERPInventory\ERPInventory\bin\Ninject.dll
+C:\Users\kaveh\Desktop\mapi2\ERPInventory\ERPInventory\bin\Ninject.Web.Common.dll
+C:\Users\kaveh\Desktop\mapi2\ERPInventory\ERPInventory\bin\Ninject.Web.WebApi.dll
+C:\Users\kaveh\Desktop\mapi2\ERPInventory\ERPInventory\bin\Ninject.xml
+C:\Users\kaveh\Desktop\mapi2\ERPInventory\ERPInventory\bin\Ninject.Web.Common.xml
+C:\Users\kaveh\Desktop\mapi2\ERPInventory\ERPInventory\bin\Ninject.Web.WebApi.xml

@@ -7,3 +7,4 @@ C:\Users\kaveh\Desktop\mapi2\ERPInventory\ERPInvenory.Model\bin\Debug\EntityFram
 C:\Users\kaveh\Desktop\mapi2\ERPInventory\ERPInvenory.Model\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\kaveh\Desktop\mapi2\ERPInventory\ERPInvenory.Model\obj\Debug\ERPInvenory.Model.dll
 C:\Users\kaveh\Desktop\mapi2\ERPInventory\ERPInvenory.Model\obj\Debug\ERPInvenory.Model.pdb
+C:\Users\kaveh\Desktop\mapi2\ERPInventory\ERPInvenory.Model\obj\Debug\ERPInventory.Model.csprojResolveAssemblyReference.cache
