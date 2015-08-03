@@ -15,7 +15,8 @@ namespace ERPInventory.Controllers
           private readonly ICategory _Category;
 
 
-          public CategoryController(ICategory category)
+          
+        public CategoryController(ICategory category)
         {
             _Category = category;
         }
@@ -28,7 +29,8 @@ namespace ERPInventory.Controllers
         {
             try
             {
-                return Request.CreateResponse(HttpStatusCode.OK, _Category.GetCategories());
+                int c = _Category.GetCategories().ToList().Count();
+                return Request.CreateResponse(HttpStatusCode.OK, _Category.GetCategories().ToList());
             }
             catch (Exception ex)
             {
