@@ -1,4 +1,4 @@
-﻿[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(ERPInventory.App_Start.NinjectWebCommon), "Start")]
+[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(ERPInventory.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(ERPInventory.App_Start.NinjectWebCommon), "Stop")]
 
 namespace ERPInventory.App_Start
@@ -10,10 +10,10 @@ namespace ERPInventory.App_Start
 
     using Ninject;
     using Ninject.Web.Common;
-    using ERPInvetnory.BusinessLayer;
-    using ERPInvetnory.DataLayer;
-    using ERPInvetnory.DataLayer.Repository;
     using ERPInventory.Model.Models;
+    using ERPInvetnory.DataLayer.Repository;
+    using ERPInvetnory.DataLayer;
+    using ERPInvetnory.BusinessLayer;
 
     public static class NinjectWebCommon 
     {
