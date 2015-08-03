@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-
 namespace ERPInventory.Model.Models
 {
     public class inv_Category
@@ -30,8 +29,11 @@ namespace ERPInventory.Model.Models
         public DateTime? Cat_StampTime { get; set; }
 
 
-        public virtual ICollection<inv_Category> Categories { get; set; }
+       
         public virtual  inv_Category Parent { get; set; }
+
+       
+        public virtual ICollection<inv_Category> Categories { get; set; }
 
 
     }
