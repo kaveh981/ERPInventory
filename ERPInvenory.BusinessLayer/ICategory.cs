@@ -7,14 +7,18 @@ using System.Threading.Tasks;
 
 namespace ERPInvetnory.BusinessLayer
 {
-   public interface ICategory
+    public interface ICategory
     {
-        IEnumerable<inv_Category> GetCategories();
 
-        inv_Category GetCategoryById();
-        IEnumerable<inv_Category> GetParentCategoriesById( Guid id);
+        IEnumerable<inv_Category> GetChildsByCategoryId(Guid id);
 
-        IEnumerable<Guid> GetChildCategoriesById(Guid id);
+
+
+        IEnumerable<inv_Category> GetParentsByCategoryId(Guid id);
+
+
+        IEnumerable<Guid> GetDescendentByCategoryId(Guid id);
+
         void PostCategory(inv_Category category);
         void DeleteCategory(int id);
         void UpdateCategory(inv_Category category);

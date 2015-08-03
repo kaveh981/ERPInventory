@@ -36,22 +36,7 @@ namespace ERPInvetnory.DataLayer.Repository
             return dbSet.AsEnumerable();
         }
 
-        //public virtual IEnumerable<valueIdPair> Get(Expression<Func<T, valueIdPair>> predicate = null, Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null)
-        //{
-
-        //    DbSet<valueIdPair> d;
-
-        //    if (predicate != null)
-        //    {
-        //        d = d.Select(predicate);
-        //    }
-        //    if (orderBy != null)
-        //    {
-        //        return orderBy(query).AsEnumerable();
-        //    }
-        //    return dbSet.AsEnumerable();
-        //}
-
+  
         public virtual T GetById(Expression<Func<T, bool>> predicate, params Expression<Func<T, object>>[] includeProperties)
         {
             var query = dbSet.AsQueryable();
