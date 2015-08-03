@@ -30,7 +30,7 @@ namespace ERPInventory.Controllers
             try
             {
                 int c = _Category.GetCategories().ToList().Count();
-                return Request.CreateResponse(HttpStatusCode.OK, _Category.GetCategories().ToList());
+                return Request.CreateResponse(HttpStatusCode.OK, _Category.GetCategories());
             }
             catch (Exception ex)
             {
