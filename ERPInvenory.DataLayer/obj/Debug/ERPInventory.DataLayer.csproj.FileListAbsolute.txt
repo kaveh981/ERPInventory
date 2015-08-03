@@ -22,5 +22,5 @@ C:\Users\Hamid\Source\Repos\ERPInventory2\ERPInvenory.DataLayer\bin\Debug\Entity
 C:\Users\Hamid\Source\Repos\ERPInventory2\ERPInvenory.DataLayer\obj\Debug\ERPInventory.DataLayer.csprojResolveAssemblyReference.cache
 C:\Users\Hamid\Source\Repos\ERPInventory2\ERPInvenory.DataLayer\obj\Debug\ERPInvenory.DataLayer.dll
 C:\Users\Hamid\Source\Repos\ERPInventory2\ERPInvenory.DataLayer\obj\Debug\ERPInvenory.DataLayer.pdb
-C:\Users\Hamid\Source\Repos\ERPInventory2\ERPInvenory.DataLayer\bin\Debug\Newtonsoft.Json.dll
-C:\Users\Hamid\Source\Repos\ERPInventory2\ERPInvenory.DataLayer\bin\Debug\Newtonsoft.Json.xml
+C:\Users\kaveh\Desktop\mapi2\ERPInventory\ERPInvenory.DataLayer\bin\Debug\Newtonsoft.Json.dll
+C:\Users\kaveh\Desktop\mapi2\ERPInventory\ERPInvenory.DataLayer\bin\Debug\Newtonsoft.Json.xml

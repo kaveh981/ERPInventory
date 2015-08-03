@@ -30,10 +30,10 @@ namespace ERPInventory.Model.Models
         public DateTime? Cat_StampTime { get; set; }
 
 
-       
-        public virtual  inv_Category Parent { get; set; }
+        [JsonIgnore]
+        public virtual inv_Category Parent { get; set; }
 
-       [JsonIgnore]
+        [JsonIgnore]
         public virtual ICollection<inv_Category> Categories { get; set; }
 
 
