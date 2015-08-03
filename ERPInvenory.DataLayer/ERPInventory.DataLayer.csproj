@@ -7,7 +7,7 @@
     <ProjectGuid>{98FD1CC1-48C5-4501-97E6-C4EF49708BD9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ERPInvenory.DataLayer</RootNamespace>
+    <RootNamespace>ERPInvetnory.DataLayer</RootNamespace>
     <AssemblyName>ERPInvenory.DataLayer</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

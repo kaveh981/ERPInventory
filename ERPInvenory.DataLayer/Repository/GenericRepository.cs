@@ -7,7 +7,7 @@ using System.Data.Entity;
 using System.Linq.Expressions;
 using ERPInventory.Model.Models;
 using System.Data.Entity.Infrastructure;
-namespace ERPInvenory.DataLayer.Repository
+namespace ERPInvetnory.DataLayer.Repository
 {
     public class GenericRepository<T> : IGenericRepository<T> where T : class
     {

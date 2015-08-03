@@ -1,4 +1,4 @@
-﻿using ERPInvenory.BusinessLayer;
+﻿using ERPInvetnory.BusinessLayer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,27 +8,33 @@ using System.Web.Http;
 
 namespace ERPInventory.Controllers
 {
-    public class CategoryController1 : ApiController
+    public class CategoryController : ApiController
     {
         // GET api/<controller>
 
           private readonly ICategory _Category;
 
 
-          public CategoryController1(ICategory category)
+          public CategoryController(ICategory category)
         {
             _Category = category;
         }
 
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
+   
 
         // GET api/<controller>/5
-        public string Get(int id)
+        [HttpGet]
+        public HttpResponseMessage GetCategories()
         {
-            return "value";
+            try
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, _Category.GetCategories());
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
+
+            }
         }
 
         // POST api/<controller>

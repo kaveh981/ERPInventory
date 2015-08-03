@@ -8,7 +8,7 @@ using System.Collections;
 
 namespace ERPInventory.Model.Models
 {
-    public class ERPInventoryDbInitializer : DropCreateDatabaseAlways<ERPInventoryDBContext>
+    public class ERPInventoryDbInitializer : DropCreateDatabaseIfModelChanges<ERPInventoryDBContext>
     {
         protected override void Seed(ERPInventoryDBContext context)
         {
@@ -20,12 +20,12 @@ namespace ERPInventory.Model.Models
             AllSubCategoryId.Append(" (");
             AllSubCategoryId.Append(" SELECT");
             AllSubCategoryId.Append(" a.CategoryId,  a.Cat_ParentId,0");
-            AllSubCategoryId.Append(" FROM dbo.Categories as a");
+            AllSubCategoryId.Append(" FROM dbo.inv_Category as a");
             AllSubCategoryId.Append(" WHERE a.CategoryId 	= @CategoryId");
             AllSubCategoryId.Append(" UNION ALL");
             AllSubCategoryId.Append(" SELECT");
             AllSubCategoryId.Append(" a.CategoryId,  a.Cat_ParentId, b.Categorylevel+1");
-            AllSubCategoryId.Append(" FROM dbo.Categories a");
+            AllSubCategoryId.Append(" FROM dbo.inv_Category a");
             AllSubCategoryId.Append(" INNER JOIN CategoryChart b ON a.Cat_ParentId = b.CategoryId");
             AllSubCategoryId.Append(" ) select CategoryId from CategoryChart );");
             context.Database.ExecuteSqlCommand(AllSubCategoryId.ToString());
@@ -38,12 +38,12 @@ namespace ERPInventory.Model.Models
             GetFullPathCategory.Append(" (");
             GetFullPathCategory.Append(" SELECT");
             GetFullPathCategory.Append("     a.CategoryID, a.Cat_CreateTime,a.Cat_NodeDepth,a.Cat_ParentId,a.Cat_Priority,a.Cat_StampTime,a.Cat_Title,0");
-            GetFullPathCategory.Append("   FROM dbo.Categories as a");
+            GetFullPathCategory.Append("   FROM dbo.inv_Category as a");
             GetFullPathCategory.Append("   WHERE a.CategoryID 	= @CategoryID");
             GetFullPathCategory.Append("  UNION ALL");
             GetFullPathCategory.Append("  SELECT");
             GetFullPathCategory.Append("     a.CategoryID, a.Cat_CreateTime,a.Cat_NodeDepth,a.Cat_ParentId,a.Cat_Priority,a.Cat_StampTime,a.Cat_Title, b.CategoryLevel+1");
-            GetFullPathCategory.Append("   FROM dbo.Categories a");
+            GetFullPathCategory.Append("   FROM dbo.inv_Category a");
             GetFullPathCategory.Append("     INNER JOIN CategoryChart b ON a.CategoryID = b.Cat_ParentId");
             GetFullPathCategory.Append(")");
             GetFullPathCategory.Append(" select * from Categorychart   );");

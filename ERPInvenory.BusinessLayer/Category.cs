@@ -1,4 +1,4 @@
-﻿using ERPInvenory.DataLayer;
+﻿using ERPInvetnory.DataLayer;
 using ERPInventory.Model.Models;
 using System;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ERPInvenory.BusinessLayer
+namespace ERPInvetnory.BusinessLayer
 {
     public class Category : ICategory
     {

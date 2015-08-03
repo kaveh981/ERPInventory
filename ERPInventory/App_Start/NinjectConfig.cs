@@ -1,5 +1,6 @@
-﻿using ERPInvenory.DataLayer;
-using ERPInvenory.DataLayer.Repository;
+﻿using ERPInvetnory.BusinessLayer;
+using ERPInvetnory.DataLayer;
+using ERPInvetnory.DataLayer.Repository;
 using ERPInventory.Model.Models;
 using Ninject;
 using System;
@@ -26,7 +27,7 @@ namespace ERPInventory.App_Start
         {
             //kernel.Bind<IOrder>().To<Mapi.BusinessLayer.Order>();
             //kernel.Bind<IItem>().To<Item>();
-            //kernel.Bind<IAccount>().To<Account>();
+            kernel.Bind<ICategory>().To<Category>();
             kernel.Bind<IUnitOfWork>().To<UnitOfWork>();
             kernel.Bind(typeof(IGenericRepository<>)).To(typeof(GenericRepository<>));
             kernel.Bind<ERPInventoryDBContext>().To<ERPInventoryDBContext>();
