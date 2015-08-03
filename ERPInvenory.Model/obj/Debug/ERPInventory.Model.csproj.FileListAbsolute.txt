@@ -18,3 +18,5 @@ C:\Users\Hamid\Source\Repos\ERPInventory2\ERPInvenory.Model\bin\Debug\EntityFram
 C:\Users\Hamid\Source\Repos\ERPInventory2\ERPInvenory.Model\obj\Debug\ERPInventory.Model.csprojResolveAssemblyReference.cache
 C:\Users\Hamid\Source\Repos\ERPInventory2\ERPInvenory.Model\obj\Debug\ERPInvenory.Model.dll
 C:\Users\Hamid\Source\Repos\ERPInventory2\ERPInvenory.Model\obj\Debug\ERPInvenory.Model.pdb
+C:\Users\kaveh\Desktop\mapi2\ERPInventory\ERPInvenory.Model\bin\Debug\Newtonsoft.Json.dll
+C:\Users\kaveh\Desktop\mapi2\ERPInventory\ERPInvenory.Model\bin\Debug\Newtonsoft.Json.xml
