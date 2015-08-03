@@ -1,12 +1,12 @@
 ﻿
-using ERPInvenory.DataLayer.Repository;
+using ERPInvetnory.DataLayer.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ERPInvenory.DataLayer
+namespace ERPInvetnory.DataLayer
 {
     public interface IUnitOfWork
     {

@@ -7,7 +7,7 @@
     <ProjectGuid>{E9523E89-6AD0-4BD7-BA76-74BCEA812B4F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ERPInvenory.Common</RootNamespace>
+    <RootNamespace>ERPInvetnory.Common</RootNamespace>
     <AssemblyName>ERPInvenory.Common</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

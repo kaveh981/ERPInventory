@@ -7,7 +7,7 @@
     <ProjectGuid>{14BAA6AE-7EF3-4E6B-8C8F-376DFE6B31A6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ERPInvenory.Model</RootNamespace>
+    <RootNamespace>ERPInvetnory.Model</RootNamespace>
     <AssemblyName>ERPInvenory.Model</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -46,7 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\inv_Category.cs" />
     <Compile Include="Models\ERPInventoryDBContext.cs" />
     <Compile Include="Models\ERPInventoryDbInitializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -54,9 +54,6 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="TextFile1.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

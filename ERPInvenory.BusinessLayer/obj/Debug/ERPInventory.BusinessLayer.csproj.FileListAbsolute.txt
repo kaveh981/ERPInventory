@@ -1,5 +1,11 @@
 C:\Users\kaveh\Desktop\mapi2\ERPInventory\ERPInvenory.BusinessLayer\bin\Debug\ERPInvenory.BusinessLayer.dll
 C:\Users\kaveh\Desktop\mapi2\ERPInventory\ERPInvenory.BusinessLayer\bin\Debug\ERPInvenory.BusinessLayer.pdb
+C:\Users\kaveh\Desktop\mapi2\ERPInventory\ERPInvenory.BusinessLayer\bin\Debug\ERPInvenory.DataLayer.dll
+C:\Users\kaveh\Desktop\mapi2\ERPInventory\ERPInvenory.BusinessLayer\bin\Debug\ERPInvenory.Model.dll
+C:\Users\kaveh\Desktop\mapi2\ERPInventory\ERPInvenory.BusinessLayer\bin\Debug\EntityFramework.dll
+C:\Users\kaveh\Desktop\mapi2\ERPInventory\ERPInvenory.BusinessLayer\bin\Debug\ERPInvenory.DataLayer.pdb
+C:\Users\kaveh\Desktop\mapi2\ERPInventory\ERPInvenory.BusinessLayer\bin\Debug\ERPInvenory.Model.pdb
+C:\Users\kaveh\Desktop\mapi2\ERPInventory\ERPInvenory.BusinessLayer\bin\Debug\EntityFramework.xml
 C:\Users\kaveh\Desktop\mapi2\ERPInventory\ERPInvenory.BusinessLayer\obj\Debug\ERPInventory.BusinessLayer.csprojResolveAssemblyReference.cache
 C:\Users\kaveh\Desktop\mapi2\ERPInventory\ERPInvenory.BusinessLayer\obj\Debug\ERPInvenory.BusinessLayer.dll
 C:\Users\kaveh\Desktop\mapi2\ERPInventory\ERPInvenory.BusinessLayer\obj\Debug\ERPInvenory.BusinessLayer.pdb
