@@ -17,24 +17,27 @@ namespace ERPInvetnory.BusinessLayer
         {
             _unitOfWork =  unitOfWork;
         }
-        public IEnumerable<inv_Category> GetCategories()
-        {
-            return _unitOfWork.Repository<inv_Category>().Get();
-        }
-
-        public inv_Category GetCategoryById()
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<inv_Category> GetParentCategoriesById(Guid id)
+        public IEnumerable<inv_Category> GetParentByCategoryId(Guid id)
         {
             return _unitOfWork.Repository<inv_Category>().SQLQuery("GetParentCategoryByID @ID",
                     new SqlParameter("ID", id)
                     ).AsEnumerable();
         }
 
-        public IEnumerable<Guid> GetChildCategoriesById(Guid id )
+        public IEnumerable<inv_Category> GetChildsByCategoryId(Guid id)
+        {
+            return _unitOfWork.Repository<inv_Category>().Get(s => s.Cat_ParentId == id);
+        }
+
+
+        public IEnumerable<inv_Category> GetParentsByCategoryId(Guid id)
+        {
+            return _unitOfWork.Repository<inv_Category>().SQLQuery("GetParentCategoryByID @ID",
+                    new SqlParameter("ID", id)
+                    ).AsEnumerable();
+        }
+
+        public IEnumerable<Guid> GetDescendentByCategoryId(Guid id )
         {
             return _unitOfWork.Repository<inv_Category>().SQLQuery("GetSubCategoryByParent @ID",
                   new SqlParameter("ID", id)
