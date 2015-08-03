@@ -17,6 +17,8 @@ namespace ERPInvetnory.BusinessLayer
         {
             _unitOfWork =  unitOfWork;
         }
+
+
         public IEnumerable<inv_Category> GetCategories()
         {
             return _unitOfWork.Repository<inv_Category>().Get();
