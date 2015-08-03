@@ -1,4 +1,5 @@
 ﻿
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -32,7 +33,7 @@ namespace ERPInventory.Model.Models
        
         public virtual  inv_Category Parent { get; set; }
 
-       
+       [JsonIgnore]
         public virtual ICollection<inv_Category> Categories { get; set; }
 
 
