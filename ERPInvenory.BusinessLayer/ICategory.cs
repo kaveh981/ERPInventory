@@ -11,12 +11,7 @@ namespace ERPInvetnory.BusinessLayer
     {
 
         IEnumerable<inv_Category> GetChildsByCategoryId(Guid id);
-
-
-
         IEnumerable<inv_Category> GetParentsByCategoryId(Guid id);
-
-
         IEnumerable<Guid> GetDescendentByCategoryId(Guid id);
 
         void PostCategory(inv_Category category);

@@ -29,8 +29,8 @@ namespace ERPInventory.Controllers
         {
             try
             {
-                int c = _Category.GetCategories().ToList().Count();
-                return Request.CreateResponse(HttpStatusCode.OK, _Category.GetCategories());
+                int c = _Category.GetChildsByCategoryId(new Guid()).ToList().Count();
+                return Request.CreateResponse(HttpStatusCode.OK, _Category.GetChildsByCategoryId(new Guid()));
             }
             catch (Exception ex)
             {
