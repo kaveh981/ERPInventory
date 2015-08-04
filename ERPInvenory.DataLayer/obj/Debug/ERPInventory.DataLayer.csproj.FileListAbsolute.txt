@@ -24,3 +24,5 @@ C:\Users\Hamid\Source\Repos\ERPInventory2\ERPInvenory.DataLayer\obj\Debug\ERPInv
 C:\Users\Hamid\Source\Repos\ERPInventory2\ERPInvenory.DataLayer\obj\Debug\ERPInvenory.DataLayer.pdb
 C:\Users\kaveh\Desktop\mapi2\ERPInventory\ERPInvenory.DataLayer\bin\Debug\Newtonsoft.Json.dll
 C:\Users\kaveh\Desktop\mapi2\ERPInventory\ERPInvenory.DataLayer\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Hamid\Source\Repos\ERPInventory2\ERPInvenory.DataLayer\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Hamid\Source\Repos\ERPInventory2\ERPInvenory.DataLayer\bin\Debug\Newtonsoft.Json.xml

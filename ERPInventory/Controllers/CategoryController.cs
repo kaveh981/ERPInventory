@@ -12,7 +12,7 @@ namespace ERPInventory.Controllers
     {
         // GET api/<controller>
 
-          private readonly ICategory _Category;
+        private readonly ICategory _Category;
 
 
           
@@ -38,6 +38,8 @@ namespace ERPInventory.Controllers
 
             }
         }
+
+
 
         // POST api/<controller>
         public void Post([FromBody]string value)
