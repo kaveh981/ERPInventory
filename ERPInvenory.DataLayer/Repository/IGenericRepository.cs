@@ -6,7 +6,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ERPInvetnory.DataLayer.Repository
+namespace ERPInventory.DataLayer.Repository
 {
     public interface IGenericRepository<T> where T : class
     {

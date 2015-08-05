@@ -11,9 +11,9 @@ namespace ERPInventory.App_Start
     using Ninject;
     using Ninject.Web.Common;
     using ERPInventory.Model.Models;
-    using ERPInvetnory.DataLayer.Repository;
-    using ERPInvetnory.DataLayer;
-    using ERPInvetnory.BusinessLayer;
+    using ERPInventory.DataLayer.Repository;
+    using ERPInventory.DataLayer;
+    using ERPInventory.BusinessLayer;
 
     public static class NinjectWebCommon 
     {

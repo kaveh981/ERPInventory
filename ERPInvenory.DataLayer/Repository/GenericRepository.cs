@@ -7,7 +7,7 @@ using System.Data.Entity;
 using System.Linq.Expressions;
 using ERPInventory.Model.Models;
 using System.Data.Entity.Infrastructure;
-namespace ERPInvetnory.DataLayer.Repository
+namespace ERPInventory.DataLayer.Repository
 {
     public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
@@ -33,7 +33,7 @@ namespace ERPInvetnory.DataLayer.Repository
             {
                 return orderBy(query).AsEnumerable();
             }
-            return dbSet.AsEnumerable();
+            return query.AsEnumerable();
         }
 
   

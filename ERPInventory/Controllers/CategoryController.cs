@@ -1,4 +1,4 @@
-﻿using ERPInvetnory.BusinessLayer;
+﻿using ERPInventory.BusinessLayer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,8 +29,8 @@ namespace ERPInventory.Controllers
         {
             try
             {
-                int c = _Category.GetChildsByCategoryId(new Guid()).ToList().Count();
-                return Request.CreateResponse(HttpStatusCode.OK, _Category.GetChildsByCategoryId(new Guid()));
+                int c = _Category.GetChildsByCategoryId(Guid.Parse("e87f784e-b93a-e511-ae8c-002433726434")).ToList().Count();
+                return Request.CreateResponse(HttpStatusCode.OK, _Category.GetChildsByCategoryId(Guid.Parse("e87f784e-b93a-e511-ae8c-002433726434")).ToList());
             }
             catch (Exception ex)
             {

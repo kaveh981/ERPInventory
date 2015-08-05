@@ -5,6 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
 using System.Collections;
+using Microsoft.AspNet.Identity;
+using ERPInventory.Model.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace ERPInventory.Model.Models
 {
@@ -90,6 +93,24 @@ namespace ERPInventory.Model.Models
             categories2.Add(cat131);
             categories2.Add(cat132);
             context.Categories.Add(cat1);
+
+
+            //  This method will be called after migrating to the latest version.
+
+            var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ERPInventoryDBContext()));
+
+            var user = new ApplicationUser()
+            {
+                UserName = "SuperPowerUser",
+                Email = "kaveh981@gmail.com",
+                EmailConfirmed = true,
+                FirstName = "Kaveh",
+                LastName = "Fereidouni",
+                Level = 1,
+                JoinDate = DateTime.Now.AddYears(-3)
+            };
+
+            manager.Create(user, "MySuperP@ssword!");
 
             base.Seed(context);
         }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ERPInvetnory.Common
+namespace ERPInventory.Common
 {
     public class Class1
     {

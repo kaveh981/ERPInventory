@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ERPInvetnory.BusinessLayer
+namespace ERPInventory.BusinessLayer
 {
     public interface ICategory
     {
