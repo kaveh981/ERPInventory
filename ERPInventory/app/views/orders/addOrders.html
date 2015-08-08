@@ -1,0 +1,52 @@
+﻿
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Add Order</h3>
+
+            </div>
+            <div class="panel-body">
+                <div >
+                    <div class="form-group">
+                        <label for="">Select an item then click add to add selected item to the order list:</label>
+                        <div class="form-inline">
+                            <select class="form-control" ng-model="itemId" ng-options="item as item.itemName +'--'+ item.price for item in items"></select>
+                            <button type="button" ng-click="insertOrderDetail()" class="btn btn-default">Add</button>
+                        </div>
+                        </div>
+
+                </div>
+                <div class="col-lg-12">
+                    <table class="table table-hover">
+                        <tr>
+                            <td><b>Id</b></td>
+                            <td><b>Name</b></td>
+                            <td><b>Price</b></td>
+                        </tr>
+                        <tr ng-repeat="orderDetail in orderDetails">
+
+                            <td>
+                                {{orderDetail.itemId}}
+                            </td>
+                            <td>
+                                {{orderDetail.name}}
+                            </td>
+                            <td>
+                                {{orderDetail.price}}
+                            </td>
+
+                        </tr>
+
+                    </table>
+                    <button type="button" ng-click="insertOrder()" class="btn btn-success">Submit Order</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+
+

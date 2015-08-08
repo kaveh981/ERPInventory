@@ -1,0 +1,43 @@
+﻿<!doctype html>
+<html lang="en" ng-app="ERPInventory">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>ERP Inventory</title>
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link href="bower_components/angular-xeditable/dist/css/xeditable.css" rel="stylesheet" />
+    <!--<link href="Content/xeditable.css" rel="stylesheet" />-->
+</head>
+<body ng-strict-di>
+    <ul class="nav nav-tabs success">
+        <li role="presentation"><a href="#addUsers"> <strong>Add Users </strong></a></li>
+        <li role="presentation"><a href="#signIn"> <strong>Sign In </strong></a></li>
+        <li role="presentation"><a href="#changePassword"> <strong>Change Password </strong></a></li>
+        <li role="presentation"><a href="#addItemCategories"> <strong>Add  Categories </strong></a></li>
+
+    </ul>
+    <br />
+    <br />
+    <div class="container">
+        <div ng-view=""></div>
+    </div>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="bower_components/angular-route/angular-route.min.js"></script>
+    <script src="bower_components/angular-xeditable/dist/js/xeditable.min.js"></script>
+    <script src="bower_components/angular-local-storage/dist/angular-local-storage.min.js"></script>
+    <script src="app/app.js"></script>
+    <script src="app/services/items/itemService.js"></script>
+    <script src="app/controllers/items/itemCategoryController.js"></script>
+    <script src="app/controllers/items/itemController.js"></script>
+    <script src="app/controllers/accounts/signInController.js"></script>
+    <script src="app/controllers/accounts/changePasswordController.js"></script>
+    <script src="app/services/orders/orderService.js"></script>
+    <script src="app/controllers/orders/addOrderController.js"></script>
+    <script src="app/controllers/orders/orderController.js"></script>
+    <script src="app/services/accounts/accountService.js"></script>
+    <script src="app/controllers/accounts/accountController.js"></script>
+</body>
+</html>
+

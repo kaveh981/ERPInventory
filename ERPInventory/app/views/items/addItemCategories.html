@@ -1,0 +1,57 @@
+﻿
+<div class="row">
+    <div class="col-lg-4">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Add Items Category</h3>
+            </div>
+            <div class="panel-body">
+
+                <form>
+                    <div class="form-group">
+                        <label for="exampleInputName2">Category</label>
+                        <input type="text" ng-model="itemCategory" class="form-control" id="exampleInputName2" placeholder="Category">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail2">Sale Tax</label>
+                        <input type="number" ng-model="saleTax" class="form-control" id="exampleInputEmail2" placeholder="Sale Tax">
+                    </div>
+                    <button type="button" ng-click="insertItemCategory() " class="btn btn-default">Add</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-8">
+
+        <table class="table table-hover">
+            <tr ng-repeat="itemCategory in itemCategories ">
+                <td>
+                    <span editable-text="itemCategory.category" e-name="category" e-form="rowform" e-required>
+                        {{itemCategory.category || 'empty'}}
+                    </span>
+                </td>
+                <td>
+                    <span editable-text="itemCategory.saleTax" e-name="saleTax" e-form="rowform" e-required>
+                        {{itemCategory.saleTax || 'empty'}}
+                    </span>
+                </td>
+                <td style="white-space: nowrap">
+                    <!-- form -->
+                    <form editable-form name="rowform" onbeforesave="updateItemCategory($data, itemCategory.id)" ng-show="rowform.$visible" class="form-buttons form-inline" shown="inserted == itemCategory">
+                        <button type="submit" ng-disabled="rowform.$waiting" class="btn btn-primary">
+                            save
+                        </button>
+                        <button type="button" ng-disabled="rowform.$waiting" ng-click="rowform.$cancel()" class="btn btn-default">
+                            cancel
+                        </button>
+                    </form>
+                    <div class="buttons" ng-show="!rowform.$visible">
+                        <button class="btn btn-primary" ng-click="rowform.$show()">edit</button>
+                        <button class="btn btn-danger" ng-click="deleteItemCategory(itemCategory.id)">delete</button>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

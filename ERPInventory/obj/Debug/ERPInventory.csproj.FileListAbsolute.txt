@@ -129,3 +129,14 @@ C:\Users\kaveh\Desktop\mapi2\ERPInventory\ERPInventory\bin\Ninject.Extensions.Co
 C:\Users\kaveh\Desktop\mapi2\ERPInventory\ERPInventory\bin\Ninject.Extensions.NamedScope.xml
 C:\Users\kaveh\Desktop\mapi2\ERPInventory\ERPInventory\bin\Ninject.Web.Common.OwinHost.xml
 C:\Users\kaveh\Desktop\mapi2\ERPInventory\ERPInventory\bin\Ninject.Web.WebApi.OwinHost.xml
+C:\Users\kaveh\Desktop\mapi2\ERPInventory\ERPInventory\bin\ERPInvenory.Common.dll
+C:\Users\kaveh\Desktop\mapi2\ERPInventory\ERPInventory\bin\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\kaveh\Desktop\mapi2\ERPInventory\ERPInventory\bin\Thinktecture.IdentityModel.Core.dll
+C:\Users\kaveh\Desktop\mapi2\ERPInventory\ERPInventory\bin\SendGridMail.dll
+C:\Users\kaveh\Desktop\mapi2\ERPInventory\ERPInventory\bin\SendGrid.SmtpApi.dll
+C:\Users\kaveh\Desktop\mapi2\ERPInventory\ERPInventory\bin\ERPInvenory.Common.pdb
+C:\Users\kaveh\Desktop\mapi2\ERPInventory\ERPInventory\bin\System.IdentityModel.Tokens.Jwt.pdb
+C:\Users\kaveh\Desktop\mapi2\ERPInventory\ERPInventory\bin\System.IdentityModel.Tokens.Jwt.xml
+C:\Users\kaveh\Desktop\mapi2\ERPInventory\ERPInventory\bin\Thinktecture.IdentityModel.Core.pdb
+C:\Users\kaveh\Desktop\mapi2\ERPInventory\ERPInventory\bin\Microsoft.Owin.Security.Jwt.dll
+C:\Users\kaveh\Desktop\mapi2\ERPInventory\ERPInventory\bin\Microsoft.Owin.Security.Jwt.xml

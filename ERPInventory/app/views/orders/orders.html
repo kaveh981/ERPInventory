@@ -1,0 +1,96 @@
+﻿
+<div class="row">
+    <div class="col-lg-8">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Orders</h3>
+
+            </div>
+            <div class="panel-body">
+                <div class="form-inline">
+                    <div class="form-group">
+                        <label for="">Select an OrderId To Print Out The Receipt Details:</label>
+
+                        <select class="form-control" ng-change="getOrderById(orderId)" ng-model="orderId">
+                            <option ng-repeat=" order in orders" value="{{order.id}}">{{order.id}}</option>
+                        </select>
+
+                    </div>
+
+                </div>
+                <br />
+                <br />
+                <div class="col-lg-12">
+                    <table class="table table-hover">
+                        <tr>
+                            <td><b>Name</b></td>
+                            <td><b>Price</b></td>
+                            <td><b>Imported Sale Tax</b></td>
+                            <td><b>Sale Tax</b></td>
+                            <td><b>Total</b></td>
+                        </tr>
+                        <tr ng-repeat="printOrderDetail in printOrder.printOrderDetails ">
+
+                            <td>
+                                {{printOrderDetail.name}}
+                            </td>
+                            <td>
+                                {{printOrderDetail.price}}
+                            </td>
+                            <td>
+                                {{printOrderDetail.importedSaleTax}}
+                            </td>
+                            <td>
+                                {{printOrderDetail.saleTax}}
+                            </td>
+                            <td>
+                                {{(printOrderDetail.price + printOrderDetail.importedSaleTax + printOrderDetail.saleTax) | number:2}}
+                            </td>
+                        </tr>
+
+                    </table>
+                </div>
+
+
+            </div>
+
+            <div class="panel-footer"><button type="button" ng-click="deleteOrder(orderId)" class="btn btn-primary">Delete Order</button></div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Orders</h3>
+
+            </div>
+            <div class="panel-body">
+                <div class="form-horizontal ">
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-10 control-label">Total Importing Sale Tax:</label>
+                        <div class="col-sm-2">
+                            {{printOrder.totalImportedSaleTax}}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-10 control-label">Total  Sale Tax:</label>
+                        <div class="col-sm-2">
+                            {{(printOrder.totalImportedSaleTax+printOrder.totalSaleTax)| number:2}}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-10 control-label">Total Price:</label>
+                        <div class="col-sm-2">
+                            {{printOrder.total}}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-10 control-label">Total:</label>
+                        <div class="col-sm-2">
+                            {{(printOrder.totalImportedSaleTax + printOrder.totalSaleTax + printOrder.total)| number:2}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

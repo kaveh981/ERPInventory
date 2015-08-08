@@ -1,0 +1,91 @@
+﻿<div class="row">
+    <div class="col-lg-4">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Add Item</h3>
+            </div>
+            <div class="panel-body">
+
+                <div>
+                    <div class="form-group">
+                        <label for="">Category</label>
+                        <select class="form-control" ng-model="categoryId">
+                            <option ng-repeat="item in itemCategories" value="{{item.id}}">{{item.category}}</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Name</label>
+                        <input type="text" ng-model="itemName" class="form-control" placeholder="Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Importing Sale Tax</label>
+                        <input type="number" ng-model="importedSaleTax" class="form-control" placeholder="Importing sale tax">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Price</label>
+                        <input type="number" ng-model="price" class="form-control" placeholder="Price">
+                    </div>
+                    <button type="button" ng-click="insertItem()" class="btn btn-default">Add</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-8">
+
+        <table class="table table-hover">
+            <tr>
+                <td><b>ID</b></td>
+                <td><b>Name</b></td>
+                <td><b>Category</b></td>
+                <td><b>Price</b></td>
+                <td><b>Imported Sale Tax</b></td>
+                <td><b>Edit</b></td>
+            </tr>
+
+            <tr ng-repeat="itemCategory in items ">
+                <td>
+                    {{itemCategory.id}}
+                </td>
+                <td>
+                    <span editable-text="itemCategory.itemName" e-name="itemName" e-form="rowform" e-required>
+                        {{itemCategory.itemName || 'empty'}}
+                    </span>
+                </td>
+                <td>
+                    <span editable-select="itemCategory.categoryId" e-name="categoryId" e-form="rowform" e-ng-options="s.id as s.category for s in itemCategories">
+                        {{itemCategory.category}}
+                    </span>
+                </td>
+
+                <td>
+                    <span editable-text="itemCategory.price" e-name="price" e-form="rowform" e-required>
+                        {{itemCategory.price || 'empty'}}
+                    </span>
+                </td>
+                <td>
+                    <span editable-text="itemCategory.importedSaleTax" e-name="importedSaleTax" e-form="rowform" e-required>
+                        {{itemCategory.importedSaleTax || 'empty'}}
+                    </span>
+                </td>
+                <td style="white-space: nowrap">
+                    <!-- form -->
+                    <form editable-form name="rowform" onbeforesave="updateItem($data, itemCategory.id)" ng-show="rowform.$visible" class="form-buttons form-inline" shown="inserted == itemCategory">
+                        <button type="submit" ng-disabled="rowform.$waiting" class="btn btn-primary">
+                            save
+                        </button>
+                        <button type="button" ng-disabled="rowform.$waiting" ng-click="rowform.$cancel()" class="btn btn-default">
+                            cancel
+                        </button>
+                    </form>
+                    <div class="buttons" ng-show="!rowform.$visible">
+                        <button class="btn btn-primary" ng-click="rowform.$show()">edit</button>
+                        <button class="btn btn-danger" ng-click="deleteItem(itemCategory.id)">delete</button>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+

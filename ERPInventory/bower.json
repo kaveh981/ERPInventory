@@ -1,0 +1,16 @@
+{
+  "name": "ERPInventory",
+  "version": "0.0.0",
+  "homepage": "https://github.com/kaveh981/ERPInventory",
+  "authors": [
+    "kaveh fereidouni <kaveh981@gmail.com>"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "angular": "~1.4.3",
+    "bootstrap-ui": "~0.13.2",
+    "angular-route": "~1.4.3",
+    "angular-bootstrap": "~0.13.2",
+    "bootstrap": "~3.3.5"
+  }
+}

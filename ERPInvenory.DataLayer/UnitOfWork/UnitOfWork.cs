@@ -34,6 +34,11 @@ namespace ERPInventory.DataLayer
             return repo;
         }
 
+        public AuthRepository Auth_Repository() 
+        {
+            return new AuthRepository(entities);
+        }
+
         public void Save()
         {
             entities.SaveChanges();
