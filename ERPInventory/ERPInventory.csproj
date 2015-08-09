@@ -238,6 +238,7 @@
     <Content Include="app\controllers\orders\addOrderController.js" />
     <Content Include="app\controllers\orders\orderController.js" />
     <Content Include="app\services\accounts\accountService.js" />
+    <Content Include="app\services\accounts\authInterceptorService.js" />
     <Content Include="app\services\items\itemService.js" />
     <Content Include="app\services\orders\orderService.js" />
     <Content Include="app\views\accounts\addUsers.html" />

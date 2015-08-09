@@ -34,7 +34,7 @@ angular.module('ERPInventory')
                 };
                 accountFactory.signIn(user)
                     .success(function () {
-                        //getItemCategories();
+                        alert("loged in");
                         $scope.users.push(user);
                     }).
                     error(function (error) {

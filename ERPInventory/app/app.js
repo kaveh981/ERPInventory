@@ -36,8 +36,14 @@ MyHomeApp.config(['$routeProvider',
                           controller: 'itemController'
                       });
                 }]);
+MyHomeApp.config(function (localStorageServiceProvider) {
+    localStorageServiceProvider
+      .setPrefix('ERPInventory');
+});
 
-
+MyHomeApp.config(function ($httpProvider) {
+    $httpProvider.interceptors.push('authInterceptorService');
+});
 
 //'use strict';
 
