@@ -9,17 +9,14 @@
     <link href="bower_components/angular-xeditable/dist/css/xeditable.css" rel="stylesheet" />
     <!--<link href="Content/xeditable.css" rel="stylesheet" />-->
 </head>
-<body ng-strict-di>
-    <ul class="nav nav-tabs success">
-        <li role="presentation"><a href="#addUsers"> <strong>Add Users </strong></a></li>
-        <li role="presentation"><a href="#signIn"> <strong>Sign In </strong></a></li>
-        <li role="presentation"><a href="#changePassword"> <strong>Change Password </strong></a></li>
-        <li role="presentation"><a href="#addItemCategories"> <strong>Add  Categories </strong></a></li>
+<body ng-strict-di ng-controller="mainController">
+    <sig-header></sig-header>
 
-    </ul>
     <br />
     <br />
+
     <div class="container">
+
         <div ng-view=""></div>
     </div>
     <script src="bower_components/angular/angular.min.js"></script>
@@ -28,6 +25,8 @@
     <script src="bower_components/angular-xeditable/dist/js/xeditable.min.js"></script>
     <script src="bower_components/angular-local-storage/dist/angular-local-storage.min.js"></script>
     <script src="app/app.js"></script>
+    <script src="app/controllers/mainController.js"></script>
+    <script src="app/directives/header/header.js"></script>
     <script src="app/services/accounts/authInterceptorService.js"></script>
     <script src="app/services/items/itemService.js"></script>
     <script src="app/controllers/items/itemCategoryController.js"></script>

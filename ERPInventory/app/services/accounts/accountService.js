@@ -3,11 +3,7 @@
 
         var urlBase = '/api/accounts/';
         var accountFactory = {};
-        var _authentication = {
-            isAuth: false,
-            userName: "",
-            useRefreshTokens: false
-        };
+      
         accountFactory.getUsers = function () {
             return $http.get(urlBase + "getItemCategories").success(function (data, status, headers, config) {
             }).
@@ -21,6 +17,11 @@
 
 
         accountFactory.insertUser = function (user) {
+            localStorageService.remove('authorizationData');
+
+            _authentication.isAuth = false;
+            _authentication.userName = "";
+            _authentication.useRefreshTokens = false;
             return $http.post(urlBase + "create", user);
         };
 
@@ -39,10 +40,10 @@
                 //    localStorageService.set('authorizationData', { token: response.access_token, userName: loginData.userName, refreshToken: response.refresh_token, useRefreshTokens: true });
                 //}
                 //else {
-                    localStorageService.set('authorizationData', { token: response.access_token, userName: loginData.userName, refreshToken: "", useRefreshTokens: false });
+                localStorageService.set('authorizationData', { token: response.access_token, userName: loginData.username, refreshToken: "", useRefreshTokens: false });
                 //}
                 _authentication.isAuth = true;
-                _authentication.userName = loginData.userName;
+                _authentication.userName = loginData.username;
                 _authentication.useRefreshTokens = loginData.useRefreshTokens;
 
                 deferred.resolve(response);
@@ -78,6 +79,6 @@
                      alert(data.exceptionMessage == undefined ? data : data.exceptionMessage)
                  });
         };
-
+        accountFactory.authentication = _authentication;
         return accountFactory;
     }]);

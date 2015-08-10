@@ -55,7 +55,7 @@ namespace ERPInventory
                 //For Dev enviroment only (on production should be AllowInsecureHttp = false)
                 AllowInsecureHttp = true,
                 TokenEndpointPath = new PathString("/oauth/token"),
-                AccessTokenExpireTimeSpan = TimeSpan.FromDays(1),
+                AccessTokenExpireTimeSpan = TimeSpan.FromDays(10),
                 Provider = new CustomOAuthProvider(),
                 AccessTokenFormat = new CustomJwtFormat("http://localhost:9594")
             };

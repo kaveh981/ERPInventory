@@ -1,4 +1,11 @@
-﻿var MyHomeApp = angular.module('ERPInventory', ['ngRoute', 'ui.bootstrap', 'xeditable', 'LocalStorageModule']);
+﻿
+var appConfig = {};
+
+appConfig.applicationName = "ERPInventory";
+
+appConfig.serviceBase = "http://localhost:9594/";
+
+var MyHomeApp = angular.module('ERPInventory', ['ngRoute', 'ui.bootstrap', 'xeditable', 'LocalStorageModule']);
 
 MyHomeApp.config(['$routeProvider',
                 function ($routeProvider) {
@@ -44,6 +51,12 @@ MyHomeApp.config(function (localStorageServiceProvider) {
 MyHomeApp.config(function ($httpProvider) {
     $httpProvider.interceptors.push('authInterceptorService');
 });
+
+var _authentication = {
+    isAuth: false,
+    userName: "nn",
+    useRefreshTokens: false
+};
 
 //'use strict';
 
