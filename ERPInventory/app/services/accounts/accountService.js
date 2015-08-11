@@ -49,7 +49,7 @@
                 deferred.resolve(response);
 
             }).error(function (err, status) {
-                _logOut();
+                accountFactory.logOut();
                 deferred.reject(err);
             });
             return deferred.promise;
@@ -79,6 +79,19 @@
                      alert(data.exceptionMessage == undefined ? data : data.exceptionMessage)
                  });
         };
+
+        accountFactory.fillAuthData = function () {
+
+            var authData = localStorageService.get('authorizationData');
+            if (authData) {
+                _authentication.isAuth = true;
+                _authentication.userName = authData.userName;
+
+                //getUserInformation();
+            }
+
+        }
+
         accountFactory.authentication = _authentication;
         return accountFactory;
     }]);

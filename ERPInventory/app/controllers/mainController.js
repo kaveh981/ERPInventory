@@ -3,8 +3,6 @@
 
 angular.module(appConfig.applicationName).controller('mainController', ['$scope', '$location', '$http',  'accountFactory', function ($scope, $location, $http, accountFactory) {
 
-   
-
 
     $scope.logOut = function () {
         accountFactory.logOut();

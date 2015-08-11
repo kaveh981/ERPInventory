@@ -39,8 +39,7 @@ MyHomeApp.config(['$routeProvider',
                           controller: 'orderController'
                       }).
                       otherwise({
-                          redirectTo: 'app/views/items/addItems.html',
-                          controller: 'itemController'
+                          redirectTo: 'addItemCategories'
                       });
                 }]);
 MyHomeApp.config(function (localStorageServiceProvider) {
@@ -51,6 +50,13 @@ MyHomeApp.config(function (localStorageServiceProvider) {
 MyHomeApp.config(function ($httpProvider) {
     $httpProvider.interceptors.push('authInterceptorService');
 });
+
+angular.module(appConfig.applicationName).run(['$route', '$rootScope', '$location', 'accountFactory', function ($route, $rootScope, $location, accountFactory) {
+
+    accountFactory.fillAuthData();
+
+  
+}]);
 
 var _authentication = {
     isAuth: false,

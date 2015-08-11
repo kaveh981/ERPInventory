@@ -3,8 +3,8 @@
 
 
 angular.module('ERPInventory')
-    .controller('accountController', ['$scope', 'accountFactory',
-        function ($scope, accountFactory) {
+    .controller('accountController', ['$scope', '$modalInstance', 'accountFactory',
+        function ($scope, $modalInstance, accountFactory) {
 
 
             function getUsers() {
@@ -17,7 +17,7 @@ angular.module('ERPInventory')
                         $scope.status = 'Unable to load item categories data: ' + error.message;
                     });
             }
-        
+
 
             $scope.insertUser = function () {
                 var user = {
@@ -31,13 +31,11 @@ angular.module('ERPInventory')
 
                 };
                 accountFactory.insertUser(user)
-                    .success(function () {
-                        //getItemCategories();
-                        $scope.users.push(user);
-                    }).
-                    error(function (error) {
-                        alert(error.message);
-                        $scope.status = 'Unable to insert item Category: ' + error.message;
-                    });
+                   .then(function (response) {
+                       $modalInstance.close();
+                   },
+             function (err) {
+                 alert(err);
+             });
             };
         }]);
