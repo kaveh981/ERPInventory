@@ -7,11 +7,12 @@
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
     <link href="bower_components/angular-xeditable/dist/css/xeditable.css" rel="stylesheet" />
+    <link href="bower_components/angular-ui-tree/dist/angular-ui-tree.min.css" rel="stylesheet" />
     <!--<link href="Content/xeditable.css" rel="stylesheet" />-->
 </head>
 <body ng-strict-di ng-controller="mainController">
     <erp-header></erp-header>
-
+  
     <br />
     <br />
 
@@ -24,20 +25,18 @@
     <script src="bower_components/angular-route/angular-route.min.js"></script>
     <script src="bower_components/angular-xeditable/dist/js/xeditable.min.js"></script>
     <script src="bower_components/angular-local-storage/dist/angular-local-storage.min.js"></script>
+    
     <script src="app/app.js"></script>
+    <script src="app/services/Tree/treeService.js"></script>
+    <script src="app/directives/Tree/treeController.js"></script>
     <script src="app/controllers/mainController.js"></script>
     <script src="app/directives/header/header.js"></script>
     <script src="app/services/accounts/authInterceptorService.js"></script>
-    <script src="app/services/items/itemService.js"></script>
-    <script src="app/controllers/items/itemCategoryController.js"></script>
-    <script src="app/controllers/items/itemController.js"></script>
     <script src="app/controllers/accounts/signInController.js"></script>
     <script src="app/controllers/accounts/changePasswordController.js"></script>
-    <script src="app/services/orders/orderService.js"></script>
-    <script src="app/controllers/orders/addOrderController.js"></script>
-    <script src="app/controllers/orders/orderController.js"></script>
     <script src="app/services/accounts/accountService.js"></script>
     <script src="app/controllers/accounts/accountController.js"></script>
+    <script src="bower_components/angular-ui-tree/dist/angular-ui-tree.js"></script>
 </body>
 </html>
 

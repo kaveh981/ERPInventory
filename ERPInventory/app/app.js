@@ -5,41 +5,20 @@ appConfig.applicationName = "ERPInventory";
 
 appConfig.serviceBase = "http://localhost:9594/";
 
-var MyHomeApp = angular.module('ERPInventory', ['ngRoute', 'ui.bootstrap', 'xeditable', 'LocalStorageModule']);
+var MyHomeApp = angular.module('ERPInventory', ['ngRoute', 'ui.bootstrap', 'xeditable','ui.tree', 'LocalStorageModule']);
 
 MyHomeApp.config(['$routeProvider',
                 function ($routeProvider) {
                     $routeProvider.
-                         when('/addUsers', {
-                             templateUrl: 'app/views/accounts/addUsers.html',
-                             controller: 'accountController'
-                         }).
-                        when('/signIn', {
-                            templateUrl: 'app/views/accounts/signIn.html',
-                            controller: 'signInController'
-                        }).
                          when('/changePassword', {
                              templateUrl: 'app/views/accounts/changePassword.html',
                              controller: 'changePasswordController'
                          }).
-                      when('/addItems', {
-                          templateUrl: 'app/views/items/addItems.html',
-                          controller: 'itemController'
-                      }).
-                         when('/addItemCategories', {
-                             templateUrl: 'app/views/items/addItemCategories.html',
-                             controller: 'itemCategoryController'
-                         }).
-                      when('/addOrders', {
-                          templateUrl: 'app/views/orders/addOrders.html',
-                          controller: 'addOrderController'
-                      }).
-                      when('/orders', {
-                          templateUrl: 'app/views/orders/orders.html',
-                          controller: 'orderController'
-                      }).
+                        when('/home', {
+                            templateUrl: 'app/views/Home/home.html'
+                        }).
                       otherwise({
-                          redirectTo: 'addItemCategories'
+                          redirectTo: 'home'
                       });
                 }]);
 MyHomeApp.config(function (localStorageServiceProvider) {

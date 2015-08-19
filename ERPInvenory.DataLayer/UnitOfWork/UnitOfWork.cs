@@ -41,7 +41,9 @@ namespace ERPInventory.DataLayer
 
         public void Save()
         {
-            entities.SaveChanges();
+
+                entities.SaveChanges();
+
         }
 
 

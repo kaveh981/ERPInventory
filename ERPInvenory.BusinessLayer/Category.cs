@@ -1,9 +1,11 @@
 ﻿using ERPInventory.DataLayer;
+using ERPInventory.Model.BindingModels;
 using ERPInventory.Model.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,11 +13,11 @@ namespace ERPInventory.BusinessLayer
 {
     public class Category : ICategory
     {
-        IUnitOfWork _unitOfWork =null;
+        IUnitOfWork _unitOfWork = null;
 
         public Category(IUnitOfWork unitOfWork)
         {
-            _unitOfWork =  unitOfWork;
+            _unitOfWork = unitOfWork;
         }
         public IEnumerable<inv_Category> GetParentByCategoryId(Guid id)
         {
@@ -24,9 +26,9 @@ namespace ERPInventory.BusinessLayer
                     ).AsEnumerable();
         }
 
-        public IEnumerable<inv_Category> GetChildsByCategoryId(Guid id)
+        public IEnumerable<categoryNode> GetChildsByCategoryId(Guid? id)
         {
-            return _unitOfWork.Repository<inv_Category>().Get(s => s.Cat_ParentId == id);
+            return _unitOfWork.Repository<inv_Category>().Get(s => s.Cat_ParentId == id, o => o.OrderBy(ob => ob.Cat_Priority)).Select(s => new categoryNode() { id = s.CategoryId, title = s.Cat_Title + "--" + Convert.ToString(s.Cat_Priority), nodes = Enumerable.Empty<categoryNode>() });
         }
 
 
@@ -37,7 +39,7 @@ namespace ERPInventory.BusinessLayer
                     ).AsEnumerable();
         }
 
-        public IEnumerable<Guid> GetDescendentByCategoryId(Guid id )
+        public IEnumerable<Guid> GetDescendentByCategoryId(Guid id)
         {
             return _unitOfWork.Repository<inv_Category>().SQLQuery("GetSubCategoryByParent @ID",
                   new SqlParameter("ID", id)
@@ -46,20 +48,56 @@ namespace ERPInventory.BusinessLayer
 
         public void PostCategory(inv_Category category)
         {
+            category.Cat_CreateTime = DateTime.Now;
             _unitOfWork.Repository<inv_Category>().Insert(category);
             _unitOfWork.Save();
         }
 
-        public void DeleteCategory(int id)
+        public void DeleteCategory(Guid id)
         {
-            _unitOfWork.Repository<inv_Category>().Delete(id);
+            inv_Category category = _unitOfWork.Repository<inv_Category>().GetById(i => i.CategoryId == id);
+            Guid? parentId = category.Cat_ParentId;
+            _unitOfWork.Repository<inv_Category>().Delete(category);
             _unitOfWork.Save();
         }
 
         public void UpdateCategory(inv_Category category)
         {
-            _unitOfWork.Repository<inv_Category>().Update(category);
+            var cat= _unitOfWork.Repository<inv_Category>().GetById(s => s.CategoryId == category.CategoryId);
+            cat.Cat_Title = category.Cat_Title;
+            cat.Cat_StampTime = DateTime.Now;
+            _unitOfWork.Repository<inv_Category>().Update(cat);
             _unitOfWork.Save();
+        }
+
+        public void MoveAndSortCategory(CategoryDataSorting data)
+        {
+            inv_Category category = _unitOfWork.Repository<inv_Category>().GetById(s => s.CategoryId == data.id);
+            var oldCat = category;
+            Guid? oldParentId = category.Cat_ParentId;
+            category.Cat_ParentId = data.parentId;
+            category.Cat_StampTime = DateTime.Now;
+            _unitOfWork.Repository<inv_Category>().Update(category);
+            var destCats = _unitOfWork.Repository<inv_Category>().Get(s => s.Cat_ParentId == data.parentId).ToList();
+            destCats.Add(category);
+            SortCategories(destCats, data.destOrder);
+            _unitOfWork.Save();
+        }
+
+        private void SortCategories(List<inv_Category> categories, List<Guid> ids)
+        {
+            int p = 1;
+            if (ids.Count>0)
+            {
+
+                foreach (var id in ids)
+                {
+                    var category = categories.Find(i => i.CategoryId == id);
+                    category.Cat_Priority = p;
+                    p++;
+                    _unitOfWork.Repository<inv_Category>().Update(category);
+                }
+            }
         }
 
         public void Dispose()

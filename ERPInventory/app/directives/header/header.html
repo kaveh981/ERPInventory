@@ -14,8 +14,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li role="presentation"><a href="#changePassword"> <strong>Change Password </strong></a></li>
-                <li role="presentation"><a href="#addItemCategories"> <strong>Add  Categories </strong></a></li>
+                <li ng-class="{hide: authentication.isAuth == false}" role="presentation"><a href="#changePassword"> <strong>Change Password </strong></a></li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">

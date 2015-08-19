@@ -1,4 +1,6 @@
 ﻿using ERPInventory.BusinessLayer;
+using ERPInventory.Model.BindingModels;
+using ERPInventory.Model.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,22 +10,17 @@ using System.Web.Http;
 
 namespace ERPInventory.Controllers
 {
-    public class CategoryController : ApiController
+    [RoutePrefix("api/category")]
+    public class CategoryController : BaseApiController
     {
-        // GET api/<controller>
 
         private readonly ICategory _Category;
 
-
-          
         public CategoryController(ICategory category)
         {
             _Category = category;
         }
 
-   
-
-        // GET api/<controller>/5
         [HttpGet]
         public HttpResponseMessage GetCategories()
         {
@@ -39,21 +36,99 @@ namespace ERPInventory.Controllers
             }
         }
 
-
-
-        // POST api/<controller>
-        public void Post([FromBody]string value)
+        [HttpGet]
+        public HttpResponseMessage GetChildsByCategoryId(Guid? id)
         {
+            //Guid? ids = id == null ? null : (Guid?)Guid.Parse(id);
+            try
+            {
+                int c = _Category.GetChildsByCategoryId(id).ToList().Count();
+                return Request.CreateResponse(HttpStatusCode.OK, _Category.GetChildsByCategoryId(id).ToList());
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
+
+            }
         }
 
-        // PUT api/<controller>/5
-        public void Put(int id, [FromBody]string value)
+        [Route("PostCategory")]
+        [Authorize]
+        public HttpResponseMessage PostCategory([FromBody]inv_Category category)
         {
+            var errors = ModelState.Values.SelectMany(v => v.Errors);
+            if (ModelState.IsValid)
+            {
+                _Category.PostCategory(category);
+                HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created, category);
+                return response;
+            }
+            else
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
+            }
         }
 
-        // DELETE api/<controller>/5
-        public void Delete(int id)
+
+        [Route("PutCategory")]
+        [Authorize]
+        [HttpPut]
+        public HttpResponseMessage PutCategory([FromBody]inv_Category category)
         {
+            var errors = ModelState.Values.SelectMany(v => v.Errors);
+            if (ModelState.IsValid)
+            {
+                _Category.UpdateCategory(category);
+                HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created, category);
+                return response;
+            }
+            else
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
+            }
+        }
+        
+        [Route("MoveAndSortCategory")]
+        [HttpPut]
+        [Authorize]
+        public HttpResponseMessage MoveAndSortCategory(CategoryDataSorting data)
+        {
+
+            var errors = ModelState.Values.SelectMany(v => v.Errors);
+            if (ModelState.IsValid)
+            {
+                _Category.MoveAndSortCategory(data);
+                HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created, data);
+                return response;
+            }
+            else
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
+            }
+        }
+
+
+        [HttpDelete]
+        [Authorize]
+        public HttpResponseMessage Delete(Guid id)
+        {
+            var errors = ModelState.Values.SelectMany(v => v.Errors);
+            if (ModelState.IsValid)
+            {
+                _Category.DeleteCategory(id);
+                HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created, id);
+                return response;
+            }
+            else
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
+            }
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            _Category.Dispose();
+            base.Dispose(disposing);
         }
     }
 }
