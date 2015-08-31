@@ -1,6 +1,7 @@
 ﻿using ERPInventory.DataLayer;
 using ERPInventory.Model.BindingModels;
 using ERPInventory.Model.Models;
+using ERPInventory.Model.SqlQueryResultModel;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -28,7 +29,7 @@ namespace ERPInventory.BusinessLayer
 
         public IEnumerable<categoryNode> GetChildsByCategoryId(Guid? id)
         {
-            return _unitOfWork.Repository<inv_Category>().Get(s => s.Cat_ParentId == id, o => o.OrderBy(ob => ob.Cat_Priority)).Select(s => new categoryNode() { id = s.CategoryId, title = s.Cat_Title + "--" + Convert.ToString(s.Cat_Priority), nodes = Enumerable.Empty<categoryNode>() });
+            return _unitOfWork.Repository<inv_Category>().Get(s => s.Cat_ParentId == id, o => o.OrderBy(ob => ob.Cat_Priority)).Results.Select(s => new categoryNode() { id = s.CategoryId, title = s.Cat_Title + "--" + Convert.ToString(s.Cat_Priority), nodes = Enumerable.Empty<categoryNode>() });
         }
 
 
@@ -39,11 +40,13 @@ namespace ERPInventory.BusinessLayer
                     ).AsEnumerable();
         }
 
-        public IEnumerable<Guid> GetDescendentByCategoryId(Guid id)
+        public PagedResult<inv_Category> GetDescendentByCategoryId(Guid id,int start,int number)
         {
-            return _unitOfWork.Repository<inv_Category>().SQLQuery("GetSubCategoryByParent @ID",
+            var ids = _unitOfWork.Repository<DescendentTree>().SQLQuery("GetSubCategoryByParent @ID",
                   new SqlParameter("ID", id)
-                  ).Select(s => s.CategoryId).AsEnumerable();
+                  ).Select(s => s.CategoryId).ToList();
+         return  _unitOfWork.Repository<inv_Category>().Get(c => ids.Contains(c.CategoryId),o=>o.OrderBy(ob=>ob.Cat_Title),null,start,number);
+
         }
 
         public void PostCategory(inv_Category category)
@@ -78,7 +81,7 @@ namespace ERPInventory.BusinessLayer
             category.Cat_ParentId = data.parentId;
             category.Cat_StampTime = DateTime.Now;
             _unitOfWork.Repository<inv_Category>().Update(category);
-            var destCats = _unitOfWork.Repository<inv_Category>().Get(s => s.Cat_ParentId == data.parentId).ToList();
+            var destCats = _unitOfWork.Repository<inv_Category>().Get(s => s.Cat_ParentId == data.parentId).Results.ToList();
             destCats.Add(category);
             SortCategories(destCats, data.destOrder);
             _unitOfWork.Save();

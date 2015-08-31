@@ -18,9 +18,9 @@ namespace ERPInventory.DataLayer.Repository
 
         private UserManager<ApplicationUser> _userManager;
 
-        public AuthRepository(ERPInventoryDBContext context)
+        public AuthRepository()
         {
-            _ctx = context;
+            _ctx = new ERPInventoryDBContext();
             _userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(_ctx));
         }
 
@@ -42,6 +42,12 @@ namespace ERPInventory.DataLayer.Repository
 
             return user;
         }
+        public ApplicationUser FindClient(string clientId)
+        {
+            var client = _ctx.Users.Find(clientId);
+
+            return client;
+        }
 
         public UserManager<ApplicationUser> Create(IdentityFactoryOptions<AuthRepository> options, IOwinContext context)
         {
@@ -60,6 +66,27 @@ namespace ERPInventory.DataLayer.Repository
             }
 
             return _userManager;
+        }
+
+        public async Task<IdentityUser> FindAsync(UserLoginInfo loginInfo)
+        {
+            IdentityUser user = await _userManager.FindAsync(loginInfo);
+
+            return user;
+        }
+
+        public async Task<IdentityResult> CreateAsync(ApplicationUser user)
+        {
+            var result = await _userManager.CreateAsync(user);
+
+            return result;
+        }
+
+        public async Task<IdentityResult> AddLoginAsync(string userId, UserLoginInfo login)
+        {
+            var result = await _userManager.AddLoginAsync(userId, login);
+
+            return result;
         }
 
         public void Dispose()

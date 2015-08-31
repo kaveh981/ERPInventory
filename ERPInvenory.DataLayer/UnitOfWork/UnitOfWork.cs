@@ -14,9 +14,9 @@ namespace ERPInventory.DataLayer
         private ERPInventoryDBContext entities;
         private Dictionary<Type, object> _repositories;
         private bool disposed;
-        public UnitOfWork()
+        public UnitOfWork(ERPInventoryDBContext dbContext)
         {
-            entities = new ERPInventoryDBContext();
+            entities = dbContext;
             _repositories = new Dictionary<Type, object>();
             disposed = false;
         }
@@ -36,17 +36,13 @@ namespace ERPInventory.DataLayer
 
         public AuthRepository Auth_Repository() 
         {
-            return new AuthRepository(entities);
+            return new AuthRepository();
         }
 
         public void Save()
         {
-
-                entities.SaveChanges();
-
+           entities.SaveChanges();
         }
-
-
 
         protected virtual void Dispose(bool disposing)
         {

@@ -21,7 +21,40 @@ namespace ERPInventory.Controllers
             _Category = category;
         }
 
+
         [HttpGet]
+        [Route("GetChildsByCategoryId")]
+        public HttpResponseMessage GetChildsByCategoryId(Guid? id)
+        {
+            try
+            {
+                int c = _Category.GetChildsByCategoryId(id).ToList().Count();
+                return Request.CreateResponse(HttpStatusCode.OK, _Category.GetChildsByCategoryId(id).ToList());
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
+
+            }
+        }
+
+        [HttpGet]
+        [Route("GetDescendentByCategoryId")]
+        public HttpResponseMessage GetDescendentByCategoryId(Guid id,int start,int number)
+        {
+            try
+            {
+                int c = _Category.GetDescendentByCategoryId(id,start,number).RowCount;
+                return Request.CreateResponse(HttpStatusCode.OK, _Category.GetDescendentByCategoryId(id, start, number));
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
+            }
+        }
+      
+        [HttpGet]
+        [Route("categories")]
         public HttpResponseMessage GetCategories()
         {
             try
@@ -36,21 +69,11 @@ namespace ERPInventory.Controllers
             }
         }
 
-        [HttpGet]
-        public HttpResponseMessage GetChildsByCategoryId(Guid? id)
-        {
-            //Guid? ids = id == null ? null : (Guid?)Guid.Parse(id);
-            try
-            {
-                int c = _Category.GetChildsByCategoryId(id).ToList().Count();
-                return Request.CreateResponse(HttpStatusCode.OK, _Category.GetChildsByCategoryId(id).ToList());
-            }
-            catch (Exception ex)
-            {
-                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
+     
+        
 
-            }
-        }
+         
+      
 
         [Route("PostCategory")]
         [Authorize]
@@ -107,7 +130,7 @@ namespace ERPInventory.Controllers
             }
         }
 
-
+           [Route("delete")]
         [HttpDelete]
         [Authorize]
         public HttpResponseMessage Delete(Guid id)

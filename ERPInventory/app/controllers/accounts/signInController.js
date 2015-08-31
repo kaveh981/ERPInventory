@@ -2,7 +2,7 @@
 
 
 
-angular.module('ERPInventory')
+angular.module(appConfig.applicationName)
     .controller('signInController', ['$scope', '$modalInstance', 'accountFactory',
         function ($scope, $modalInstance, accountFactory) {
 

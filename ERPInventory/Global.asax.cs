@@ -16,17 +16,14 @@ namespace ERPInventory
     {
         protected void Application_Start()
         {
-            //AreaRegistration.RegisterAllAreas();
-            //GlobalConfiguration.Configure(WebApiConfig.Register);
-            //FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
-            //RouteConfig.RegisterRoutes(RouteTable.Routes);
-            //BundleConfig.RegisterBundles(BundleTable.Bundles);
-            // to initialize database for the first time 
-            //var context = new ERPInventoryDBContext();
-            //context.Database.Initialize(true);
-
-
-
+        //    //AreaRegistration.RegisterAllAreas();
+        //    //GlobalConfiguration.Configure(WebApiConfig.Register);
+        //    //FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+        //    //RouteConfig.RegisterRoutes(RouteTable.Routes);
+        //    //BundleConfig.RegisterBundles(BundleTable.Bundles);
+        //    // to initialize database for the first time 
+        var context = new ERPInventoryDBContext();
+        context.Database.Initialize(true);
         }
     }
 }

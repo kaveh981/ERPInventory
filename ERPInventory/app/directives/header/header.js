@@ -1,5 +1,5 @@
 ﻿
-angular.module('ERPInventory').controller('headerController', function ($scope, $modal) {
+angular.module(appConfig.applicationName).controller('headerController', function ($scope, $modal) {
 
     $scope.showLoginForm = function () {
 
@@ -26,7 +26,7 @@ angular.module('ERPInventory').controller('headerController', function ($scope, 
 
 });
 
-angular.module('ERPInventory').directive('erpHeader', function () {
+angular.module(appConfig.applicationName).directive('erpHeader', function () {
     return {
         templateUrl: function (elem, attr) {
             return 'app/directives/header/header.html';

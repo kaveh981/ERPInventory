@@ -4,7 +4,7 @@ angular.module(appConfig.applicationName).controller('treeController', ['$rootSc
 
         if (treeFactory.catData == null || treeFactory.catData.length < 1) {
 
-            GetChildsByCategoryId(null);
+            GetChildsByCategoryId("");
         }
         else {
             $scope.data = treeFactory.catData;

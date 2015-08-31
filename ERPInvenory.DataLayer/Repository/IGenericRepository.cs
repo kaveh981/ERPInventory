@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ERPInventory.Model.BindingModels;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
@@ -10,8 +11,8 @@ namespace ERPInventory.DataLayer.Repository
 {
     public interface IGenericRepository<T> where T : class
     {
-        IEnumerable<T> Get(Expression<Func<T, bool>> predicate = null,
-                            Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null, params Expression<Func<T, object>>[] includeProperties);
+        PagedResult<T> Get(Expression<Func<T, bool>> predicate = null,
+                            Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null, Expression<Func<T, object>>[] includeProperties = null, int skip = 0, int take = 0);
         T GetById(Expression<Func<T, bool>> predicate, params Expression<Func<T, object>>[] includeProperties);
 
         IEnumerable<T> SQLQuery(string sql, params object[] parameters);

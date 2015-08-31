@@ -5,7 +5,7 @@ appConfig.applicationName = "ERPInventory";
 
 appConfig.serviceBase = "http://localhost:9594/";
 
-var MyHomeApp = angular.module('ERPInventory', ['ngRoute', 'ui.bootstrap', 'xeditable','ui.tree', 'LocalStorageModule']);
+var MyHomeApp = angular.module('ERPInventory', ['ngRoute', 'ui.bootstrap', 'xeditable', 'ui.tree', 'LocalStorageModule', 'smart-table']);
 
 MyHomeApp.config(['$routeProvider',
                 function ($routeProvider) {
@@ -14,6 +14,10 @@ MyHomeApp.config(['$routeProvider',
                              templateUrl: 'app/views/accounts/changePassword.html',
                              controller: 'changePasswordController'
                          }).
+                        when('/manageTree', {
+                            templateUrl: 'app/views/tree/manageTree.html',
+                            controller: 'manageTreeController'
+                        }).
                         when('/home', {
                             templateUrl: 'app/views/Home/home.html'
                         }).
@@ -104,5 +108,5 @@ var _authentication = {
 //    $scope.initialise();
 //}];
 
-//angular.module('ERPInventory').controller('SettingsCtrl', SettingsCtrl);
+//angular.module(appConfig.applicationName).controller('SettingsCtrl', SettingsCtrl);
 

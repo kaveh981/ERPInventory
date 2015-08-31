@@ -72,7 +72,7 @@ namespace ERPInventory.Model.Models
             GetSubCategoryByParent.Append(" @Cat_ParentId uniqueidentifier");
             GetSubCategoryByParent.Append(" as");
             GetSubCategoryByParent.Append(" SELECT     CategoryId");
-            GetSubCategoryByParent.Append(" FROM         Categories");
+            GetSubCategoryByParent.Append(" FROM         dbo.inv_Category");
             GetSubCategoryByParent.Append(" where Cat_ParentId in( select * from dbo.AllSubCategoryID(@Cat_ParentId))");
             context.Database.ExecuteSqlCommand(GetSubCategoryByParent.ToString());
 
@@ -101,7 +101,7 @@ namespace ERPInventory.Model.Models
 
             var user = new ApplicationUser()
             {
-                UserName = "SuperPowerUser",
+                UserName = "kaveh1",
                 Email = "kaveh981@gmail.com",
                 EmailConfirmed = true,
                 FirstName = "Kaveh",
@@ -110,7 +110,7 @@ namespace ERPInventory.Model.Models
                 JoinDate = DateTime.Now.AddYears(-3)
             };
 
-            manager.Create(user, "MySuperP@ssword!");
+            manager.Create(user, "123456");
 
             base.Seed(context);
         }

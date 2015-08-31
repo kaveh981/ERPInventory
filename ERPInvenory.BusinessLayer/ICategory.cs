@@ -13,7 +13,7 @@ namespace ERPInventory.BusinessLayer
 
         IEnumerable<categoryNode> GetChildsByCategoryId(Guid? id);
         IEnumerable<inv_Category> GetParentsByCategoryId(Guid id);
-        IEnumerable<Guid> GetDescendentByCategoryId(Guid id);
+        PagedResult<inv_Category> GetDescendentByCategoryId(Guid id,int start,int number);
 
         void PostCategory(inv_Category category);
         void DeleteCategory(Guid id);

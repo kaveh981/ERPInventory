@@ -79,6 +79,12 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Owin.Security.Jwt">
       <HintPath>..\packages\Microsoft.Owin.Security.Jwt.3.0.1\lib\net45\Microsoft.Owin.Security.Jwt.dll</HintPath>
     </Reference>
@@ -217,13 +223,15 @@
       <DependentUpon>Global.asax</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Infrastructure\ApplicationUserManager.cs" />
     <Compile Include="Models\ChangePasswordBindingModel.cs" />
     <Compile Include="Models\CreateUserBindingModel.cs" />
     <Compile Include="Models\ModelFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\CustomJwtFormat.cs" />
     <Compile Include="Providers\CustomOAuthProvider.cs" />
+    <Compile Include="Providers\FacebookAuthProvider.cs" />
+    <Compile Include="Providers\GoogleAuthProvider.cs" />
+    <Compile Include="Results\ChallengeResult.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Validators\MyCustomPasswordValidator.cs" />
     <Compile Include="Validators\MyCustomUserValidator.cs" />
@@ -234,6 +242,7 @@
     <Content Include="app\controllers\accounts\accountController.js" />
     <Content Include="app\controllers\accounts\signInController.js" />
     <Content Include="app\controllers\mainController.js" />
+    <Content Include="app\controllers\tree\manageTreeController.js" />
     <Content Include="app\directives\directives.js" />
     <Content Include="app\directives\header\header.html" />
     <Content Include="app\directives\header\header.js" />
@@ -246,6 +255,7 @@
     <Content Include="app\views\accounts\changePassword.html" />
     <Content Include="app\views\accounts\signIn.html" />
     <Content Include="app\views\Home\home.html" />
+    <Content Include="app\views\Tree\manageTree.html" />
     <Content Include="bower_components\angular-bootstrap\.gitignore" />
     <Content Include="bower_components\angular-bootstrap\index.js" />
     <Content Include="bower_components\angular-bootstrap\ui-bootstrap-csp.css" />
@@ -263,6 +273,21 @@
     <Content Include="bower_components\angular-route\angular-route.js" />
     <Content Include="bower_components\angular-route\angular-route.min.js" />
     <Content Include="bower_components\angular-route\index.js" />
+    <Content Include="bower_components\angular-smart-table\.gitignore" />
+    <Content Include="bower_components\angular-smart-table\dist\smart-table.js" />
+    <Content Include="bower_components\angular-smart-table\dist\smart-table.min.js" />
+    <Content Include="bower_components\angular-smart-table\gulpFile.js" />
+    <Content Include="bower_components\angular-smart-table\index.js" />
+    <Content Include="bower_components\angular-smart-table\src\bottom.txt" />
+    <Content Include="bower_components\angular-smart-table\src\smart-table.module.js" />
+    <Content Include="bower_components\angular-smart-table\src\stConfig.js" />
+    <Content Include="bower_components\angular-smart-table\src\stPagination.js" />
+    <Content Include="bower_components\angular-smart-table\src\stPipe.js" />
+    <Content Include="bower_components\angular-smart-table\src\stSearch.js" />
+    <Content Include="bower_components\angular-smart-table\src\stSelectRow.js" />
+    <Content Include="bower_components\angular-smart-table\src\stSort.js" />
+    <Content Include="bower_components\angular-smart-table\src\stTable.js" />
+    <Content Include="bower_components\angular-smart-table\src\top.txt" />
     <Content Include="bower_components\angular-ui-tree\.gitignore" />
     <Content Include="bower_components\angular-ui-tree\dist\angular-ui-tree.js" />
     <Content Include="bower_components\angular-ui-tree\dist\angular-ui-tree.min.css" />
@@ -702,6 +727,13 @@
     <Content Include="bower_components\angular-ui-tree\CHANGELOG.md" />
     <Content Include="bower_components\angular-ui-tree\LICENSE" />
     <Content Include="bower_components\angular-ui-tree\README.md" />
+    <Content Include="bower_components\angular-smart-table\.bower.json" />
+    <Content Include="bower_components\angular-smart-table\.travis.yml" />
+    <Content Include="bower_components\angular-smart-table\bower.json" />
+    <Content Include="bower_components\angular-smart-table\changeLog.md" />
+    <Content Include="bower_components\angular-smart-table\dist\smart-table.min.js.map" />
+    <Content Include="bower_components\angular-smart-table\package.json" />
+    <Content Include="bower_components\angular-smart-table\readme.md" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Global.asax" />
     <Content Include="index.html" />

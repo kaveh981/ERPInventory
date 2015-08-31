@@ -2,13 +2,9 @@
 
 
 
-angular.module('ERPInventory')
+angular.module(appConfig.applicationName)
     .controller('changePasswordController', ['$scope', 'accountFactory',
         function ($scope, accountFactory) {
-
-
-
-        
 
             $scope.changePassword = function () {
                 var data = {

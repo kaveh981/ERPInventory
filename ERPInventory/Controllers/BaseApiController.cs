@@ -1,5 +1,4 @@
-﻿using ERPInventory.Infrastructure;
-using Microsoft.AspNet.Identity;
+﻿using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +7,7 @@ using System.Web.Http;
 using System.Net.Http;
 using Microsoft.AspNet.Identity.Owin;
 using ERPInventory.Models;
+using ERPInventory.DataLayer.AuthenticationRepository;
 namespace ERPInventory.Controllers
 {
     public class BaseApiController : ApiController

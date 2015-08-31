@@ -1,4 +1,5 @@
-﻿using ERPInventory.Infrastructure;
+﻿
+using ERPInventory.DataLayer.AuthenticationRepository;
 using ERPInventory.Model.Models;
 using Microsoft.AspNet.Identity;
 using System;

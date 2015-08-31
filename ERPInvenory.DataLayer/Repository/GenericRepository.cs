@@ -7,6 +7,8 @@ using System.Data.Entity;
 using System.Linq.Expressions;
 using ERPInventory.Model.Models;
 using System.Data.Entity.Infrastructure;
+using System.Runtime.InteropServices;
+using ERPInventory.Model.BindingModels;
 namespace ERPInventory.DataLayer.Repository
 {
     public class GenericRepository<T> : IGenericRepository<T> where T : class
@@ -20,23 +22,33 @@ namespace ERPInventory.DataLayer.Repository
             this.dbSet = context.Set<T>();
         }
 
-        public virtual IEnumerable<T> Get( Expression<Func<T, bool>> predicate = null, Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null, params Expression<Func<T, object>>[] includeProperties)
+        public virtual PagedResult<T> Get(Expression<Func<T, bool>> predicate = null, Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null, Expression<Func<T, object>>[] includeProperties = null, int skip = 0, int take = 0)
         {
             var query = dbSet.AsQueryable();
-            foreach (var property in includeProperties)
-                query = query.Include(property);
+            PagedResult<T> result = new PagedResult<T>();
+            if (includeProperties != null)
+            {
+                foreach (var property in includeProperties)
+                    query = query.Include(property);
+            }
             if (predicate != null)
             {
                 query = query.Where(predicate);
             }
             if (orderBy != null)
             {
-                return orderBy(query).AsEnumerable();
+                query = orderBy(query);
             }
-            return query.AsEnumerable();
+            result.RowCount = query.Count();
+            if( take>0)
+            {
+                query = query.Skip(skip).Take(take);
+            }
+            result.Results = query.AsEnumerable();
+            return result;
         }
 
-  
+
         public virtual T GetById(Expression<Func<T, bool>> predicate, params Expression<Func<T, object>>[] includeProperties)
         {
             var query = dbSet.AsQueryable();

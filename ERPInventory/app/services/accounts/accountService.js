@@ -1,4 +1,4 @@
-﻿angular.module('ERPInventory')
+﻿angular.module(appConfig.applicationName)
     .factory('accountFactory', ['$http', '$q', 'localStorageService', function ($http, $q, localStorageService) {
 
         var urlBase = '/api/accounts/';

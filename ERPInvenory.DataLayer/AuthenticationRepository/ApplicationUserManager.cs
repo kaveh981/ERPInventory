@@ -1,14 +1,13 @@
-﻿using ERPInventory.Model.Models;
+﻿using ERPInventory.Common;
+using ERPInventory.Model.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
-using ERPInventory.Common;
 using System;
-using ERPInventory.Validators;
-namespace ERPInventory.Infrastructure
+namespace ERPInventory.DataLayer.AuthenticationRepository
 {
-    public class ApplicationUserManager: UserManager<ApplicationUser>
+    public class ApplicationUserManager : UserManager<ApplicationUser>
     {
         public ApplicationUserManager(IUserStore<ApplicationUser> store)
             : base(store)

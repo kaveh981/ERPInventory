@@ -1,5 +1,5 @@
 ﻿
-angular.module('ERPInventory').factory('authInterceptorService', ['$q', '$location', 'localStorageService', function ($q, $location, localStorageService) {
+angular.module(appConfig.applicationName).factory('authInterceptorService', ['$q', '$location', 'localStorageService', function ($q, $location, localStorageService) {
 
     var authInterceptorServiceFactory = {};
 

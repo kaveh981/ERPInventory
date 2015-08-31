@@ -7,8 +7,8 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 using Microsoft.AspNet.Identity.Owin;
-using ERPInventory.Infrastructure;
 using ERPInventory.Model.Models;
+using ERPInventory.DataLayer.AuthenticationRepository;
 
 namespace ERPInventory.Providers
 {

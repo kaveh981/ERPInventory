@@ -57,11 +57,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BindingModels\categoryNode.cs" />
+    <Compile Include="BindingModels\ExternalLoginModels.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\inv_Category.cs" />
     <Compile Include="Models\ERPInventoryDBContext.cs" />
     <Compile Include="Models\ERPInventoryDbInitializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SqlQueryResultModel\DescendentTree.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

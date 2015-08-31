@@ -20,4 +20,13 @@ namespace ERPInventory.Model.BindingModels
         public Nullable<Guid> parentId { get; set; }
         public List<Guid> destOrder { get; set; }
     }
+
+    public class PagedResult<T>
+    {
+        public IEnumerable<T> Results { get; set; }
+        public int CurrentPage { get; set; }
+        public int PageCount { get; set; }
+        public int PageSize { get; set; }
+        public int RowCount { get; set; }
+    }
 }
