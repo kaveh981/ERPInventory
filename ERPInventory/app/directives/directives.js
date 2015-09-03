@@ -12,4 +12,19 @@ angular.module(appConfig.applicationName).directive('pwCheck', [function () {
                 });
             }
         }
-    }]);
+}]);
+
+angular.module(appConfig.applicationName).directive('searchWatchModel', function () {
+    return {
+        require: '^stTable',
+        scope: {
+            searchWatchModel: '='
+        },
+        link: function (scope, ele, attr, ctrl) {
+            scope.$watch('searchWatchModel', function (val) {
+                ctrl.search(val, "parentId");
+            });
+
+        }
+    };
+});

@@ -9,6 +9,7 @@ using ERPInventory.Model.Models;
 using System.Data.Entity.Infrastructure;
 using System.Runtime.InteropServices;
 using ERPInventory.Model.BindingModels;
+using LinqKit;
 namespace ERPInventory.DataLayer.Repository
 {
     public class GenericRepository<T> : IGenericRepository<T> where T : class
@@ -22,8 +23,9 @@ namespace ERPInventory.DataLayer.Repository
             this.dbSet = context.Set<T>();
         }
 
-        public virtual PagedResult<T> Get(Expression<Func<T, bool>> predicate = null, Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null, Expression<Func<T, object>>[] includeProperties = null, int skip = 0, int take = 0)
+        public virtual PagedResult<T> Get(Expression<Func<T, bool>> predicate = null, Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null, int skip = 0, int take = 0,params Expression<Func<T, object>>[] includeProperties )
         {
+           
             var query = dbSet.AsQueryable();
             PagedResult<T> result = new PagedResult<T>();
             if (includeProperties != null)
@@ -33,7 +35,7 @@ namespace ERPInventory.DataLayer.Repository
             }
             if (predicate != null)
             {
-                query = query.Where(predicate);
+                query = query.AsExpandable().Where(predicate);
             }
             if (orderBy != null)
             {

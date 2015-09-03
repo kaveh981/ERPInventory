@@ -246,6 +246,9 @@
     <Content Include="app\directives\directives.js" />
     <Content Include="app\directives\header\header.html" />
     <Content Include="app\directives\header\header.js" />
+    <Content Include="app\directives\rangeSelector\rangeSelector.js" />
+    <Content Include="app\directives\rangeSelector\stDateRange.html" />
+    <Content Include="app\directives\rangeSelector\stNumberRange.html" />
     <Content Include="app\directives\Tree\tree.html" />
     <Content Include="app\directives\Tree\treeController.js" />
     <Content Include="app\services\accounts\accountService.js" />
@@ -553,6 +556,10 @@
     <Content Include="bower_components\jquery\src\var\support.js" />
     <Content Include="bower_components\jquery\src\var\toString.js" />
     <Content Include="bower_components\jquery\src\wrap.js" />
+    <Content Include="bower_components\ng-hierarchical-selector.0.3.4\ng-hierarchical-selector.0.3.4.css" />
+    <Content Include="bower_components\ng-hierarchical-selector.0.3.4\ng-hierarchical-selector.0.3.4.js" />
+    <Content Include="bower_components\ng-hierarchical-selector.0.3.4\ng-hierarchical-selector.0.3.4.min.css" />
+    <Content Include="bower_components\ng-hierarchical-selector.0.3.4\ng-hierarchical-selector.0.3.4.min.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />

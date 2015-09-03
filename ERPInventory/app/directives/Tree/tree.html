@@ -55,7 +55,7 @@
             </script>
             <script type="text/ng-template" id="editCategoryTemplate.html">
                 <div class="form-horizontal">
-                    <input type="text" ng-init="editTitle=node.title" ng-model="editTitle" class="col-sm-10 form-control" />
+                    <input type="text" ng-init="editTitle=node.name" ng-model="editTitle" class="col-sm-10 form-control" />
                     <div class="col-sm-2">
                         <button type="button" ng-click="putCategory(this,node.id) " class=" btn btn-default">Edit</button>
                     </div>
@@ -65,10 +65,10 @@
             <script type="text/ng-template" id="nodes_renderer.html">
                 <div ui-tree-handle class="tree-node tree-node-content">
                     <a class="btn btn-success btn-xs" data-nodrag ng-click=" getChilds(this,node.id)"><span class="glyphicon" ng-class="{'glyphicon-chevron-right': collapsed, 'glyphicon-chevron-down': !collapsed}"></span></a>
-                    {{node.title}}
+                    {{node.name}}
                     <a class="pull-right btn btn-danger btn-xs" data-nodrag ng-click=" deleteCategory(this,node.id)"><span class="glyphicon glyphicon-remove"></span></a>
-                    <a class="pull-right btn btn-primary btn-xs"  popover-title="{{node.title}}" popover-template="dynamicPopover.templateUrl" data-nodrag style="margin-right: 8px;"><span class="glyphicon glyphicon-plus"></span></a>
-                    <a class="pull-right btn btn-primary btn-xs"  popover-title="{{node.title}}" popover-template="editPopover.templateUrl" data-nodrag style="margin-right: 8px;"><span class="glyphicon glyphicon-pencil"></span></a>
+                    <a class="pull-right btn btn-primary btn-xs"  popover-title="{{node.name}}" popover-template="dynamicPopover.templateUrl" data-nodrag style="margin-right: 8px;"><span class="glyphicon glyphicon-plus"></span></a>
+                    <a class="pull-right btn btn-primary btn-xs"  popover-title="{{node.name}}" popover-template="editPopover.templateUrl" data-nodrag style="margin-right: 8px;"><span class="glyphicon glyphicon-pencil"></span></a>
                  </div>
                 <ol ui-tree-nodes="" ng-model="node.nodes" ng-class="{hidden: collapsed}">
                     <li ng-repeat="node in node.nodes" ui-tree-node ng-include="'nodes_renderer.html'"></li>

@@ -52,6 +52,21 @@ namespace ERPInventory.Controllers
                 return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
             }
         }
+
+        [HttpPost]
+        [Route("FilterCategories")]
+        public HttpResponseMessage FilterCategories(FilterCategories filterCategories)
+        {
+            try
+            {
+                int c = _Category.FilterCategories(filterCategories, filterCategories.start.Value, filterCategories.number.Value).RowCount;
+                return Request.CreateResponse(HttpStatusCode.OK, _Category.FilterCategories(filterCategories, filterCategories.start.Value, filterCategories.number.Value));
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
+            }
+        }
       
         [HttpGet]
         [Route("categories")]

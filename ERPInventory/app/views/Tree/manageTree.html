@@ -1,13 +1,13 @@
 ﻿
-    <br />
-    <br />
-    <button ng-click="callServer();"> get</button>
+<br />
+<br />
 
 
+<input  />
 
 
-<table class="table" st-pipe="callServer" st-table="displayed">
-    <thead>
+<table  class="table" st-pipe="callServer" st-table="displayed">
+    <thead search-watch-model="query">
         <tr>
             <th st-sort="id">id</th>
             <th st-sort="title">title</th>
@@ -18,14 +18,26 @@
             <th st-sort="stampTime">Stamp Time</th>
         </tr>
         <tr>
-            <th><input st-search="id" /></th>
-            <th><input st-search="title" /></th>
-            <th><input st-search="nodeDepth" /></th>
-            <th><input st-search="parentId" /></th>
-            <th><input st-search="createdTime" /></th>
-            <th><input st-search="priority" /></th>
-            <th><input st-search="stampTime" /></th>
+            <th colspan="2">
+                <input placeholder="title" st-search="title" />
+            </th>
+            <th>
+                <st-number-range predicate="nodeDepth" from="query.lower" to="query.higher"></st-number-range>
+            </th>
+            <th>
+                <hierarchical-selector load-child-items="loadAsyncData(parent)" predicate="parentId" on-selection-changed="parentId = onSelectionChanged(items); "></hierarchical-selector>
+            </th>
+            <th>
+                <st-date-range predicate="createTime" before="query.from" after="query.to"></st-date-range>
+            </th>
+            <th>
+                <st-number-range predicate="priority" from="query.fromPriority" to="query.toPriority"></st-number-range>
+            </th>
+            <th>
+                <st-date-range predicate="stampTime" before="query.fromStampTime" after="query.toStampTime"></st-date-range>
+            </th>
         </tr>
+
     </thead>
     <tbody ng-show="!isLoading">
         <tr ng-repeat="row in displayed">

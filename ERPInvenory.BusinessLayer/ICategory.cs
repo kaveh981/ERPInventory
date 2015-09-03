@@ -14,7 +14,7 @@ namespace ERPInventory.BusinessLayer
         IEnumerable<categoryNode> GetChildsByCategoryId(Guid? id);
         IEnumerable<inv_Category> GetParentsByCategoryId(Guid id);
         PagedResult<inv_Category> GetDescendentByCategoryId(Guid id,int start,int number);
-
+        PagedResult<inv_Category> FilterCategories(FilterCategories filterCategories, int start, int number);
         void PostCategory(inv_Category category);
         void DeleteCategory(Guid id);
         void UpdateCategory(inv_Category category);
