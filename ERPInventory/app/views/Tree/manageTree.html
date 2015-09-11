@@ -16,21 +16,21 @@
         </tr>
         <tr>
             <th colspan="1">
-                <input placeholder="title" st-search="title" />
+                <input placeholder="title" st-search="title" class="input-sm form-control" />
             </th>
             <th>
                 <st-number-range predicate="nodeDepth" from="query.lower" to="query.higher"></st-number-range>
             </th>
-            <th>
+            <th width="20%">
                 <hierarchical-selector load-child-items="loadAsyncData(parent)" predicate="parentId" on-selection-changed="parentId = onSelectionChanged(items); "></hierarchical-selector>
             </th>
-            <th>
+            <th width="15%">
                 <st-date-range predicate="createTime" before="query.from" after="query.to"></st-date-range>
             </th>
             <th>
                 <st-number-range predicate="priority" from="query.fromPriority" to="query.toPriority"></st-number-range>
             </th>
-            <th>
+            <th width="15%">
                 <st-date-range predicate="stampTime" before="query.fromStampTime" after="query.toStampTime"></st-date-range>
             </th>
         </tr>
