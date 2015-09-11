@@ -29,9 +29,9 @@ namespace ERPInventory.Model.BindingModels
         public Nullable<int> number { get; set; }
         public string parentId { get; set; }
         public string title { get; set; }
-        public rangeSelector<int> nodeDepth { get; set; }
+        public rangeSelector<int?> nodeDepth { get; set; }
         public rangeSelector<DateTime> createTime { get; set; }
-        public rangeSelector<int> priority { get; set; }
+        public rangeSelector<int?> priority { get; set; }
         public rangeSelector<DateTime> stampTime { get; set; }
         public Sorting sortBy { get; set; }
     }

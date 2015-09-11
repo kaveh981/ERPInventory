@@ -15,7 +15,7 @@
             <th st-sort="stampTime">Stamp Time</th>
         </tr>
         <tr>
-            <th colspan="1">
+            <th >
                 <input placeholder="title" st-search="title" class="input-sm form-control" />
             </th>
             <th>
@@ -54,7 +54,9 @@
     </tbody>
     <tfoot>
         <tr>
-            <td class="text-center" st-pagination="" st-items-by-page="2" colspan="4"></td>
+            <td colspan="6" class="text-center">
+                <div st-items-by-page="4" st-pagination="" st-template="app/views/Templates/pagination.custom.html"></div>
+            </td>
         </tr>
     </tfoot>
 </table>	

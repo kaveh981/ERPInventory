@@ -243,6 +243,7 @@
     <Content Include="app\controllers\accounts\signInController.js" />
     <Content Include="app\controllers\mainController.js" />
     <Content Include="app\controllers\tree\manageTreeController.js" />
+    <Content Include="app\css\site.css" />
     <Content Include="app\directives\directives.js" />
     <Content Include="app\directives\header\header.html" />
     <Content Include="app\directives\header\header.js" />
@@ -741,6 +742,7 @@
     <Content Include="bower_components\angular-smart-table\dist\smart-table.min.js.map" />
     <Content Include="bower_components\angular-smart-table\package.json" />
     <Content Include="bower_components\angular-smart-table\readme.md" />
+    <Content Include="app\views\Templates\pagination.custom.html" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Global.asax" />
     <Content Include="index.html" />

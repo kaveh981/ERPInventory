@@ -91,22 +91,22 @@ namespace ERPInventory.BusinessLayer
             }
             if (filterCategories.nodeDepth != null)
             {
-                if (filterCategories.nodeDepth.from != 0)
+                if (filterCategories.nodeDepth.from != null)
                 {
                     predicate = predicate.And(c => c.Cat_NodeDepth > filterCategories.nodeDepth.from);
                 }
-                if (filterCategories.nodeDepth.to != 0)
+                if (filterCategories.nodeDepth.to != null)
                 {
                     predicate = predicate.And(c => c.Cat_NodeDepth < filterCategories.nodeDepth.to);
                 }
             }
             if (filterCategories.priority != null)
             {
-                if (filterCategories.priority.from != 0)
+                if (filterCategories.priority.from != null)
                 {
                     predicate = predicate.And(c => c.Cat_Priority > filterCategories.priority.from);
                 }
-                if (filterCategories.priority.to != 0)
+                if (filterCategories.priority.to != null)
                 {
                     predicate = predicate.And(c => c.Cat_Priority < filterCategories.priority.to);
                 }
