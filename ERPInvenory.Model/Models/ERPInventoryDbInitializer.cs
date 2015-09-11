@@ -82,14 +82,14 @@ namespace ERPInventory.Model.Models
             IList<inv_Category> categories2 = new List<inv_Category>();
 
             cat1 = new inv_Category() { Cat_CreateTime = DateTime.Now, Cat_Title = "Category1", Cat_Priority = 1, Cat_NodeDepth = 0, Categories = categories1 };
-            cat12 = new inv_Category() { Cat_CreateTime = DateTime.Now, Cat_Title = "Category12", Cat_NodeDepth = 1, Cat_Priority = 1 };
-            cat13 = new inv_Category() { Cat_CreateTime = DateTime.Now, Cat_Title = "Category13", Cat_NodeDepth = 1, Cat_Priority = 2, Categories = categories2 };
-            cat14 = new inv_Category() { Cat_CreateTime = DateTime.Now, Cat_Title = "Category14", Cat_NodeDepth = 1, Cat_Priority = 3 };
+            cat12 = new inv_Category() { Cat_CreateTime = DateTime.Now.AddDays(-1), Cat_Title = "Category12", Cat_NodeDepth = 1, Cat_Priority = 1 };
+            cat13 = new inv_Category() { Cat_CreateTime = DateTime.Now.AddDays(-2), Cat_Title = "Category13", Cat_NodeDepth = 1, Cat_Priority = 2, Categories = categories2 };
+            cat14 = new inv_Category() { Cat_CreateTime = DateTime.Now.AddDays(-3), Cat_Title = "Category14", Cat_NodeDepth = 1, Cat_Priority = 3 };
             categories1.Add(cat12);
             categories1.Add(cat13);
             categories1.Add(cat14);
-            cat131 = new inv_Category() { Cat_CreateTime = DateTime.Now, Cat_Title = "Category131", Cat_NodeDepth = 2, Cat_Priority = 1 };
-            cat132 = new inv_Category() { Cat_CreateTime = DateTime.Now, Cat_Title = "Category132", Cat_NodeDepth = 2, Cat_Priority = 2 };
+            cat131 = new inv_Category() { Cat_CreateTime = DateTime.Now.AddDays(-4), Cat_Title = "Category131", Cat_NodeDepth = 2, Cat_Priority = 1 };
+            cat132 = new inv_Category() { Cat_CreateTime = DateTime.Now.AddDays(-5), Cat_Title = "Category132", Cat_NodeDepth = 2, Cat_Priority = 2 };
             categories2.Add(cat131);
             categories2.Add(cat132);
             context.Categories.Add(cat1);
