@@ -1,6 +1,6 @@
 ﻿
 angular.module(appConfig.applicationName).controller('headerController', function ($scope, $modal) {
-
+    $scope.navbarCollapsed = true;
     $scope.showLoginForm = function () {
 
         var modalInstance = $modal.open({

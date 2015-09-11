@@ -58,7 +58,7 @@ namespace ERPInventory.BusinessLayer
 
         }
 
-        public PagedResult<inv_Category> FilterCategories(FilterCategories filterCategories, int start, int number)
+        public PagedResult<object> FilterCategories(FilterCategories filterCategories, int start, int number)
         {
 
             var predicate = PredicateBuilder.True<inv_Category>();
@@ -121,7 +121,9 @@ namespace ERPInventory.BusinessLayer
 
                 }
             }
-            return _unitOfWork.Repository<inv_Category>().Get(predicate, orderBy, start, number, i => i.Parent);
+            var result = _unitOfWork.Repository<inv_Category>().Get(predicate, orderBy, start, number, i => i.Parent);
+
+            return new PagedResult<object>() { CurrentPage = result.CurrentPage, PageCount = result.PageCount, PageSize = result.PageSize, RowCount = result.RowCount, Results = result.Results.Select(s => new { s.Cat_CreateTime, s.Cat_NodeDepth, s.Cat_Priority, s.Cat_StampTime, s.Cat_Title, ParentCat_Title = s.Parent != null ? s.Parent.Cat_Title : "" }) };
 
         }
         public void PostCategory(inv_Category category)
