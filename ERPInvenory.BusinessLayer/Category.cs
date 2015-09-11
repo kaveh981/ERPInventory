@@ -62,23 +62,67 @@ namespace ERPInventory.BusinessLayer
         {
 
             var predicate = PredicateBuilder.True<inv_Category>();
-            Expression<Func<inv_Category, bool>> clientWhere = c => true;
+            //Expression<Func<inv_Category, bool>> clientWhere = c => true;
 
             if (!string.IsNullOrEmpty(filterCategories.title))
             {
                 predicate = predicate.And(c => c.Cat_Title.Contains(filterCategories.title));
-                var prefix = clientWhere.Compile();
-                clientWhere = c => prefix(c) && c.Cat_Title == filterCategories.title;
+                //var prefix = clientWhere.Compile();
+                //clientWhere = c => prefix(c) && c.Cat_Title.Contains(filterCategories.title);
             }
             if (!string.IsNullOrEmpty(filterCategories.parentId))
             {
                 var ids = _unitOfWork.Repository<DescendentTree>().SQLQuery("GetSubCategoryByParent @ID",
                   new SqlParameter("ID", Guid.Parse(filterCategories.parentId))
                   ).Select(s => s.CategoryId).ToList();
-                var prefix = clientWhere.Compile();
-                clientWhere = c => prefix(c) && ids.Contains(c.CategoryId);
                 predicate = predicate.And(c => ids.Contains(c.CategoryId));
             }
+
+            if (filterCategories.createTime!=null)
+            {
+                if (filterCategories.createTime.from != null)
+                {
+                    predicate = predicate.And(c => c.Cat_CreateTime > filterCategories.createTime.from);
+                }
+                if (filterCategories.createTime.to != null)
+                {
+                    predicate = predicate.And(c => c.Cat_CreateTime < filterCategories.createTime.to);
+                }
+            }
+            if (filterCategories.nodeDepth != null)
+            {
+                if (filterCategories.nodeDepth.from != 0)
+                {
+                    predicate = predicate.And(c => c.Cat_NodeDepth > filterCategories.nodeDepth.from);
+                }
+                if (filterCategories.nodeDepth.to != 0)
+                {
+                    predicate = predicate.And(c => c.Cat_NodeDepth < filterCategories.nodeDepth.to);
+                }
+            }
+            if (filterCategories.priority != null)
+            {
+                if (filterCategories.priority.from != 0)
+                {
+                    predicate = predicate.And(c => c.Cat_Priority > filterCategories.priority.from);
+                }
+                if (filterCategories.priority.to != 0)
+                {
+                    predicate = predicate.And(c => c.Cat_Priority < filterCategories.priority.to);
+                }
+            }
+            if (filterCategories.stampTime != null)
+            {
+                if (filterCategories.stampTime.from != null)
+                {
+                    predicate = predicate.And(c => c.Cat_StampTime > filterCategories.stampTime.from);
+                }
+                if (filterCategories.stampTime.to != null)
+                {
+                    predicate = predicate.And(c => c.Cat_StampTime < filterCategories.stampTime.to);
+                }
+            }
+
             Func<IQueryable<inv_Category>, IOrderedQueryable<inv_Category>> orderBy = o => o.OrderBy(ob => ob.Cat_Title);
             bool reverse = filterCategories.sortBy.reverse;
             if (!string.IsNullOrEmpty(filterCategories.sortBy.predicate))
