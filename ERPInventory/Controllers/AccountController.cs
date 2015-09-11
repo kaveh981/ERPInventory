@@ -70,6 +70,7 @@ namespace ERPInventory.Controllers
         [Route("create")]
         public async Task<IHttpActionResult> CreateUser(CreateUserBindingModel createUserModel)
         {
+            
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);

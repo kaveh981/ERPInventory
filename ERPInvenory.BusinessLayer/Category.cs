@@ -121,7 +121,7 @@ namespace ERPInventory.BusinessLayer
 
                 }
             }
-            return _unitOfWork.Repository<inv_Category>().Get(predicate, orderBy,start, number, null);
+            return _unitOfWork.Repository<inv_Category>().Get(predicate, orderBy, start, number, i => i.Parent);
 
         }
         public void PostCategory(inv_Category category)

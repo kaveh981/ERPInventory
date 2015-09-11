@@ -60,18 +60,18 @@
   //          return deferred.promise;
   //      }
 
-        treeFactory.FilterCategories = function FilterCategories(start, number, params) {
+        treeFactory.FilterCategories = function FilterCategories( params) {
 
             var deferred = $q.defer();
             var search = {};
             search = params.search.predicateObject != undefined ? params.search.predicateObject : {};
-            search.start = 0;
-            search.number = number;
+            search.start = params.pagination.start;
+            search.number = params.pagination.number;
             search.sortBy = params.sort;
             $http.post(urlBase + "FilterCategories",search).success(function (data, status, headers, config) {
                 deferred.resolve({
                     data: data.Results,
-                    numberOfPages: Math.ceil(data.RowCount / number)
+                    numberOfPages: Math.ceil(data.RowCount / params.pagination.number)
                 });
             }).
             error(function (data, status, headers, config) {

@@ -3,13 +3,10 @@
 <br />
 
 
-<input  />
-
-
 <table  class="table" st-pipe="callServer" st-table="displayed">
     <thead search-watch-model="query">
         <tr>
-            <th st-sort="id">id</th>
+            <!--<th st-sort="id">id</th>-->
             <th st-sort="title">title</th>
             <th st-sort="nodeDepth">Node Depth</th>
             <th st-sort="parentId">Parent ID</th>
@@ -18,7 +15,7 @@
             <th st-sort="stampTime">Stamp Time</th>
         </tr>
         <tr>
-            <th colspan="2">
+            <th colspan="1">
                 <input placeholder="title" st-search="title" />
             </th>
             <th>
@@ -41,10 +38,10 @@
     </thead>
     <tbody ng-show="!isLoading">
         <tr ng-repeat="row in displayed">
-            <td>{{row.CategoryId}}</td>
+            <!--<td>{{row.CategoryId}}</td>-->
             <td>{{row.Cat_Title}}</td>
             <td>{{row.Cat_NodeDepth}}</td>
-            <td>{{row.Cat_ParentId}}</td>
+            <td>{{row.Parent.Cat_Title}}</td>
             <td>{{row.Cat_CreateTime}}</td>
             <td>{{row.Cat_Priority}}</td>
             <td>{{row.Cat_StampTime}}</td>
