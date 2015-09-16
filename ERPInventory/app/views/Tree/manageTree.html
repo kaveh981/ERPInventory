@@ -3,10 +3,9 @@
 <br />
 
 
-<table  class="table" st-pipe="callServer" st-table="displayed">
+<table class="table" st-pipe="FilterCategories" st-table="displayed">
     <thead search-watch-model="query">
         <tr>
-            <!--<th st-sort="id">id</th>-->
             <th st-sort="title">title</th>
             <th st-sort="nodeDepth">Node Depth</th>
             <th st-sort="parentId">Parent</th>
@@ -15,7 +14,7 @@
             <th st-sort="stampTime">Stamp Time</th>
         </tr>
         <tr>
-            <th >
+            <th>
                 <input placeholder="title" st-search="title" class="input-sm form-control" />
             </th>
             <th>
@@ -38,7 +37,6 @@
     </thead>
     <tbody ng-show="!isLoading">
         <tr ng-repeat="row in displayed">
-            <!--<td>{{row.CategoryId}}</td>-->
             <td>{{row.Cat_Title}}</td>
             <td>{{row.Cat_NodeDepth}}</td>
             <td>{{row.ParentCat_Title}}</td>

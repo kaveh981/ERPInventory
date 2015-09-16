@@ -14,7 +14,8 @@ angular.module(appConfig.applicationName).directive('pwCheck', [function () {
         }
 }]);
 
-angular.module(appConfig.applicationName).directive('searchWatchModel', function () {
+angular.module(appConfig.applicationName)
+    .directive('searchWatchModel', function () {
     return {
         require: '^stTable',
         scope: {
