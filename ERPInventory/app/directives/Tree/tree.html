@@ -38,16 +38,16 @@
     <div class="row">
         <div class="col-lg-6">
             <div ng-include="addCategoryTemplate.html"></div>
-            <h3  >
+            <h3>
                 Tree view
                 <a href="" class="btn btn-default pull-right" ng-click="collapseAll()">Collapse all</a>
-                <a  href="" class="btn btn-default pull-right" ng-click="expandAll()">Expand all</a>
+                <a href="" class="btn btn-default pull-right" ng-click="expandAll()">Expand all</a>
                 <!--<a href="" class="btn btn-default btn-warning pull-right" ng-click="moveLastToTheBegginig()">Move Last To The Beginning</a>-->
             </h3>
 
             <script type="text/ng-template" id="addCategoryTemplate.html">
                 <div class="form-horizontal">
-                    <input type="text"  ng-model="categoryTitle" class="col-sm-10 form-control">
+                    <input type="text" ng-model="categoryTitle" class="col-sm-10 form-control">
                     <div class="col-sm-2">
                         <button type="button" ng-click="postCategory(this,node.id) " class=" btn btn-default">Add</button>
                     </div>
@@ -62,23 +62,27 @@
                 </div>
             </script>
             <!-- Nested node template -->
-            <script type="text/ng-template" id="nodes_renderer.html">
+            <script  type="text/ng-template" id="nodes_renderer.html">
                 <div ui-tree-handle class="tree-node tree-node-content">
-                    <a class="btn btn-success btn-xs" data-nodrag ng-click=" getChilds(this,node.id)"><span class="glyphicon" ng-class="{'glyphicon-chevron-right': collapsed, 'glyphicon-chevron-down': !collapsed}"></span></a>
+                    <a class="btn btn-success btn-xs" data-nodrag ng-click="getChilds(this,node.id)">
+                        <span class="glyphicon" ng-kaveh haschildren="{{node.hasChildren}}"
+                              ng-class="{'glyphicon-chevron-right': collapsed, 'glyphicon-chevron-down': !collapsed }"></span>
+                    </a>
                     {{node.name}}
                     <a class="pull-right btn btn-danger btn-xs" data-nodrag ng-click=" deleteCategory(this,node.id)"><span class="glyphicon glyphicon-remove"></span></a>
-                    <a class="pull-right btn btn-primary btn-xs"  popover-title="{{node.name}}" popover-template="dynamicPopover.templateUrl" data-nodrag style="margin-right: 8px;"><span class="glyphicon glyphicon-plus"></span></a>
-                    <a class="pull-right btn btn-primary btn-xs"  popover-title="{{node.name}}" popover-template="editPopover.templateUrl" data-nodrag style="margin-right: 8px;"><span class="glyphicon glyphicon-pencil"></span></a>
-                 </div>
+                    <a class="pull-right btn btn-primary btn-xs" popover-title="{{node.name}}" popover-template="dynamicPopover.templateUrl" data-nodrag style="margin-right: 8px;"><span class="glyphicon glyphicon-plus"></span></a>
+                    <a class="pull-right btn btn-primary btn-xs" popover-title="{{node.name}}" popover-template="editPopover.templateUrl" data-nodrag style="margin-right: 8px;"><span class="glyphicon glyphicon-pencil"></span></a>
+                </div>
                 <ol ui-tree-nodes="" ng-model="node.nodes" ng-class="{hidden: collapsed}">
-                    <li ng-repeat="node in node.nodes" ui-tree-node ng-include="'nodes_renderer.html'"></li>
+                    <li data-collapsed="node.hasChildren" ng-repeat="node in node.nodes" ui-tree-node ng-include="'nodes_renderer.html'"></li>
                 </ol>
             </script>
-            <div ui-tree="treeOptions" id="tree-root">
+            <div  ui-tree="treeOptions" id="tree-root">
                 <ol ui-tree-nodes="" ng-model="data">
-                    <li ng-repeat="node in data" ui-tree-node ng-include="'nodes_renderer.html'"></li>
+                    <li data-collapsed="node.hasChildren" ng-repeat="node in data" ui-tree-node ng-include="'nodes_renderer.html'"></li>
                 </ol>
-                <a class="pull-right btn btn-primary btn-xs" popover-title="Root" popover-template="dynamicPopover.templateUrl" data-nodrag style="margin-right: 8px;"><span class="glyphicon glyphicon-plus"></span></a>            </div>
+                <a class="pull-right btn btn-primary btn-xs" popover-title="Root" popover-template="dynamicPopover.templateUrl" data-nodrag style="margin-right: 8px;"><span class="glyphicon glyphicon-plus"></span></a>
+            </div>
         </div>
 
         <div class="col-lg-6">

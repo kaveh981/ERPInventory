@@ -19,7 +19,6 @@ angular.module(appConfig.applicationName)
                  }
                  )
                 return defer.promise;
-
             };
 
 
